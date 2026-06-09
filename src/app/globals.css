@@ -1,1 +1,85 @@
 @import "tailwindcss";
+
+@theme {
+  --color-cream: #FDFCF9;
+  --color-cream-50: #FFFEFC;
+  --color-cream-100: #F7F4EE;
+  --color-cream-200: #EDE8DE;
+  --color-charcoal: #1A1A1A;
+  --color-charcoal-800: #2E2E2E;
+  --color-charcoal-600: #555555;
+  --color-gold: #D4AF37;
+  --color-gold-light: #E8D5A3;
+  --color-gold-dark: #B8962E;
+  --color-teal: #136557;
+  --color-teal-light: #1D8A75;
+  --color-teal-dark: #0E4F43;
+  --color-warm: #C85A48;
+  --color-warm-light: #D87A6A;
+  --color-stone-400: #8A8A8A;
+  --color-stone-300: #A0A0A0;
+  --color-border: #E8E3DA;
+  --color-border-light: #F0EBE2;
+  --font-serif: var(--font-serif), serif;
+  --font-sans: var(--font-sans), sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  ::selection {
+    background-color: var(--color-gold);
+    color: var(--color-charcoal);
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-cream-100);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-stone-300);
+  }
+
+  .mlm {
+    font-family: 'Noto Sans Malayalam', 'Malayalam Sangam MN', sans-serif;
+  }
+}
+
+@layer utilities {
+  .link-underline {
+    position: relative;
+    display: inline-block;
+  }
+
+  .link-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 100%;
+    height: 1px;
+    background-color: currentColor;
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: center;
+    transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .link-underline:hover::after {
+    transform: translateX(-50%) scaleX(1);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
