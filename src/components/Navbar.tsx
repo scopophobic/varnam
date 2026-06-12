@@ -34,6 +34,7 @@ export default function Navbar() {
   }, [mobileOpen])
 
   return (
+    <>
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled || mobileOpen
@@ -75,7 +76,7 @@ export default function Navbar() {
 
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className={`relative z-50 flex h-10 w-10 shrink-0 items-center justify-center gap-[5px] rounded-lg transition-colors md:hidden ${
+          className={`flex h-10 w-10 shrink-0 items-center justify-center gap-[5px] rounded-lg transition-colors md:hidden ${
             mobileOpen ? 'bg-charcoal/5' : 'hover:bg-charcoal/5'
           }`}
           aria-label="Toggle menu"
@@ -97,66 +98,67 @@ export default function Navbar() {
           />
         </button>
       </nav>
+    </header>
 
-      <AnimatePresence>
-        {mobileOpen && (
+    <AnimatePresence>
+      {mobileOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.25 }}
+          className="fixed inset-0 z-40 flex flex-col bg-gradient-to-b from-white via-cream-50 to-white"
+        >
+          <div className="flex min-h-dvh flex-col items-center justify-center gap-8 px-6 pb-28 pt-24">
+            {navLinks.map((link, i) => (
+              <motion.a
+                key={link.href}
+                href={link.href}
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.05, duration: 0.35 }}
+                onClick={() => setMobileOpen(false)}
+                className="font-serif text-3xl tracking-wide text-charcoal transition-colors hover:text-gold"
+              >
+                {link.label}
+              </motion.a>
+            ))}
+          </div>
+
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 top-0 z-40 flex flex-col items-center justify-center bg-gradient-to-b from-white via-cream-50 to-white"
+            transition={{ delay: 0.3 }}
+            className="absolute bottom-10 left-0 right-0 text-center"
           >
-            <div className="flex flex-col items-center gap-7">
-              {navLinks.map((link, i) => (
-                <motion.a
-                  key={link.href}
-                  href={link.href}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.06, duration: 0.4 }}
-                  onClick={() => setMobileOpen(false)}
-                  className="font-serif text-3xl tracking-wide text-charcoal transition-colors hover:text-gold"
-                >
-                  {link.label}
-                </motion.a>
-              ))}
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-stone-400">
+              Follow Us
+            </p>
+            <div className="mt-3 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 px-6">
+              <a href="https://www.instagram.com/varnam_painting_and_designs/" target="_blank" rel="noopener noreferrer" className="text-xs text-charcoal/60 hover:text-gold font-bold uppercase tracking-[0.15em] whitespace-nowrap transition-colors">
+                Instagram
+              </a>
+              <span className="text-stone-300">·</span>
+              <a href="https://www.facebook.com/people/Varnam-painting-designing/100063485036683/" target="_blank" rel="noopener noreferrer" className="text-xs text-charcoal/60 hover:text-gold font-bold uppercase tracking-[0.15em] whitespace-nowrap transition-colors">
+                Facebook
+              </a>
+              <span className="text-stone-300">·</span>
+              <a href="tel:+919526100862" className="text-xs text-charcoal/60 hover:text-gold font-bold uppercase tracking-[0.15em] whitespace-nowrap transition-colors">
+                Call
+              </a>
+              <span className="text-stone-300">·</span>
+              <a href="mailto:info@varnampainting.com" className="text-xs text-charcoal/60 hover:text-gold font-bold uppercase tracking-[0.15em] whitespace-nowrap transition-colors">
+                Email
+              </a>
+              <span className="text-stone-300">·</span>
+              <a href="https://wa.me/919526100862" target="_blank" rel="noopener noreferrer" className="text-xs text-charcoal/60 hover:text-gold font-bold uppercase tracking-[0.15em] whitespace-nowrap transition-colors">
+                WhatsApp
+              </a>
             </div>
-
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.35 }}
-              className="absolute bottom-12 left-0 right-0 text-center"
-            >
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-stone-400">
-                Follow Us
-              </p>
-              <div className="mt-3 flex items-center justify-center gap-4">
-                <a href="https://www.instagram.com/varnam_painting_and_designs/" target="_blank" rel="noopener noreferrer" className="text-xs text-charcoal/60 hover:text-gold font-bold uppercase tracking-[0.15em] transition-colors">
-                  Instagram
-                </a>
-                <span className="text-stone-300">·</span>
-                <a href="https://www.facebook.com/people/Varnam-painting-designing/100063485036683/" target="_blank" rel="noopener noreferrer" className="text-xs text-charcoal/60 hover:text-gold font-bold uppercase tracking-[0.15em] transition-colors">
-                  Facebook
-                </a>
-                <span className="text-stone-300">·</span>
-                <a href="tel:+919526100862" className="text-xs text-charcoal/60 hover:text-gold font-bold uppercase tracking-[0.15em] transition-colors">
-                  Call
-                </a>
-                <span className="text-stone-300">·</span>
-                <a href="mailto:info@varnampainting.com" className="text-xs text-charcoal/60 hover:text-gold font-bold uppercase tracking-[0.15em] transition-colors">
-                  Email
-                </a>
-                <span className="text-stone-300">·</span>
-                <a href="https://wa.me/919526100862" target="_blank" rel="noopener noreferrer" className="text-xs text-charcoal/60 hover:text-gold font-bold uppercase tracking-[0.15em] transition-colors">
-                  WhatsApp
-                </a>
-              </div>
-            </motion.div>
           </motion.div>
-        )}
-      </AnimatePresence>
-    </header>
+        </motion.div>
+      )}
+    </AnimatePresence>
+    </>
   )
 }
