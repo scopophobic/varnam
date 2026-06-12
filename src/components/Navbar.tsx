@@ -76,26 +76,26 @@ export default function Navbar() {
 
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className={`flex h-10 w-10 shrink-0 items-center justify-center gap-[5px] rounded-lg transition-colors md:hidden ${
-            mobileOpen ? 'bg-charcoal/5' : 'hover:bg-charcoal/5'
-          }`}
+          className="z-50 flex h-9 w-9 shrink-0 items-center justify-center md:hidden"
           aria-label="Toggle menu"
         >
-          <span
-            className={`block h-[2.5px] w-5 rounded-full bg-charcoal transition-all duration-300 origin-center ${
-              mobileOpen ? 'translate-y-[3.75px] rotate-45' : ''
-            }`}
-          />
-          <span
-            className={`block h-[2.5px] w-5 rounded-full bg-charcoal transition-all duration-300 ${
-              mobileOpen ? 'opacity-0 scale-x-0' : ''
-            }`}
-          />
-          <span
-            className={`block h-[2.5px] w-5 rounded-full bg-charcoal transition-all duration-300 origin-center ${
-              mobileOpen ? '-translate-y-[3.75px] -rotate-45' : ''
-            }`}
-          />
+          <div className="flex w-[18px] flex-col items-center gap-[5px]">
+            <span
+              className={`block h-[2px] w-full rounded-full bg-charcoal transition-all duration-300 origin-center ${
+                mobileOpen ? 'translate-y-[7px] -rotate-45' : ''
+              }`}
+            />
+            <span
+              className={`block h-[2px] w-full rounded-full bg-charcoal transition-all duration-300 ${
+                mobileOpen ? 'opacity-0' : ''
+              }`}
+            />
+            <span
+              className={`block h-[2px] w-full rounded-full bg-charcoal transition-all duration-300 origin-center ${
+                mobileOpen ? '-translate-y-[7px] rotate-45' : ''
+              }`}
+            />
+          </div>
         </button>
       </nav>
     </header>
