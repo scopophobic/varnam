@@ -75,24 +75,24 @@ export default function Navbar() {
 
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className={`relative z-50 flex h-8 w-8 flex-col items-center justify-center gap-[5px] transition-opacity md:hidden ${
-            scrolled ? 'opacity-100' : 'opacity-80'
+          className={`relative z-50 flex h-10 w-10 shrink-0 items-center justify-center gap-[5px] rounded-lg transition-colors md:hidden ${
+            mobileOpen ? 'bg-charcoal/5' : 'hover:bg-charcoal/5'
           }`}
           aria-label="Toggle menu"
         >
           <span
-            className={`block h-[2px] w-5 bg-charcoal transition-all duration-300 origin-center ${
-              mobileOpen ? 'translate-y-[3.5px] rotate-45' : ''
+            className={`block h-[2.5px] w-5 rounded-full bg-charcoal transition-all duration-300 origin-center ${
+              mobileOpen ? 'translate-y-[3.75px] rotate-45' : ''
             }`}
           />
           <span
-            className={`block h-[2px] w-5 bg-charcoal transition-all duration-300 ${
+            className={`block h-[2.5px] w-5 rounded-full bg-charcoal transition-all duration-300 ${
               mobileOpen ? 'opacity-0 scale-x-0' : ''
             }`}
           />
           <span
-            className={`block h-[2px] w-5 bg-charcoal transition-all duration-300 origin-center ${
-              mobileOpen ? '-translate-y-[3.5px] -rotate-45' : ''
+            className={`block h-[2.5px] w-5 rounded-full bg-charcoal transition-all duration-300 origin-center ${
+              mobileOpen ? '-translate-y-[3.75px] -rotate-45' : ''
             }`}
           />
         </button>
