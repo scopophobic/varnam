@@ -133,6 +133,14 @@ export default function Navbar() {
                 Follow Us
               </p>
               <div className="mt-3 flex items-center justify-center gap-4">
+                <a href="https://www.instagram.com/varnam_painting_and_designs/" target="_blank" rel="noopener noreferrer" className="text-xs text-charcoal/60 hover:text-gold font-bold uppercase tracking-[0.15em] transition-colors">
+                  Instagram
+                </a>
+                <span className="text-stone-300">·</span>
+                <a href="https://www.facebook.com/people/Varnam-painting-designing/100063485036683/" target="_blank" rel="noopener noreferrer" className="text-xs text-charcoal/60 hover:text-gold font-bold uppercase tracking-[0.15em] transition-colors">
+                  Facebook
+                </a>
+                <span className="text-stone-300">·</span>
                 <a href="tel:+919526100862" className="text-xs text-charcoal/60 hover:text-gold font-bold uppercase tracking-[0.15em] transition-colors">
                   Call
                 </a>
