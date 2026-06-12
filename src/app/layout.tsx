@@ -2,6 +2,7 @@ import { Playfair_Display, Plus_Jakarta_Sans, Noto_Sans_Malayalam } from 'next/f
 import type { Metadata } from 'next'
 import Navbar from '@/components/Navbar'
 import ScrollProgress from '@/components/ScrollProgress'
+import AnimatedBackground from '@/components/AnimatedBackground'
 import './globals.css'
 
 const playfair = Playfair_Display({
@@ -23,9 +24,9 @@ const malayalam = Noto_Sans_Malayalam({
 })
 
 export const metadata: Metadata = {
-  title: 'Varnam Painting and Designs | Premium Painting & Interior Design in Kerala',
+  title: 'Varnam Painting and Designs | Bringing Life to Spaces Through Colours',
   description:
-    'Premium residential and commercial painting, architectural design visualization, and protective wall coatings across Kerala.',
+    'Varnam means colours in Malayalam. We are a trusted painting company in Kerala offering premium interior and exterior painting for homes, offices, and commercial spaces.',
 }
 
 export default function RootLayout({
@@ -35,10 +36,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" data-scroll-behavior="smooth" className={`${playfair.variable} ${jakarta.variable} ${malayalam.variable}`}>
-      <body className="font-sans bg-cream text-charcoal antialiased">
-        <ScrollProgress />
-        <Navbar />
-        {children}
+      <body className="font-sans bg-[#0d0a08] text-charcoal antialiased selection:bg-gold selection:text-charcoal">
+        <AnimatedBackground />
+        <div className="relative z-10">
+          <ScrollProgress />
+          <Navbar />
+          {children}
+        </div>
       </body>
     </html>
   )

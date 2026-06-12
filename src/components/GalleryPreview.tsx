@@ -33,17 +33,17 @@ export default function GalleryPreview() {
   }, [])
 
   return (
-    <section id="gallery" className="border-t border-border bg-cream">
+    <section id="gallery" className="bg-cream/75">
       <div className="mx-auto max-w-7xl px-6 py-20 lg:px-16 lg:py-32">
         <Reveal y={20}>
           <div className="text-center">
-            <span className="text-xs uppercase tracking-[0.25em] text-gold">
+            <span className="inline-block rounded-full bg-teal/20 px-4 py-1 text-xs font-bold uppercase tracking-[0.2em] text-teal-dark">
               Our Work
             </span>
             <h2 className="mt-4 font-serif text-3xl leading-tight tracking-tight text-charcoal md:text-5xl">
               Featured Projects
             </h2>
-            <div className="mx-auto mt-4 h-[2px] w-12 bg-gold" />
+            <div className="mx-auto mt-4 h-1 w-16 rounded-full bg-gradient-to-r from-teal to-blue" />
           </div>
         </Reveal>
 
@@ -55,7 +55,7 @@ export default function GalleryPreview() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group relative cursor-pointer overflow-hidden"
+              className="group relative cursor-pointer overflow-hidden rounded-xl shadow-md"
             >
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
@@ -65,12 +65,12 @@ export default function GalleryPreview() {
                   className="object-cover transition-all duration-700 group-hover:scale-105"
                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 25vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-charcoal/60 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/20 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                 <div className="absolute bottom-0 left-0 right-0 p-3 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 sm:p-5">
                   <h3 className="font-serif text-xs text-white sm:text-base">
                     {image.title}
                   </h3>
-                  <p className="mt-0.5 text-[9px] uppercase tracking-[0.15em] text-white/70 sm:text-xs">
+                  <p className="mt-0.5 text-[9px] font-bold uppercase tracking-[0.15em] text-gold-light sm:text-xs">
                     {image.category}
                   </p>
                 </div>
@@ -83,7 +83,7 @@ export default function GalleryPreview() {
           <div className="mt-10 text-center sm:mt-12">
             <Link
               href="/gallery"
-              className="group inline-flex items-center gap-2 border border-border px-7 py-3 text-xs uppercase tracking-[0.2em] text-charcoal transition-all duration-300 hover:border-charcoal sm:px-8 sm:py-3.5"
+              className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-teal to-blue px-8 py-3.5 text-xs font-bold uppercase tracking-[0.15em] text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl sm:px-10 sm:py-4"
             >
               View Full Gallery
               <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">

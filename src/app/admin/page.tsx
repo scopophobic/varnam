@@ -103,7 +103,7 @@ export default function AdminDashboard() {
   if (authenticated === null) return null
 
   return (
-    <div className="min-h-screen bg-cream pt-24">
+    <div className="min-h-screen bg-cream/75 pt-24">
       <div className="mx-auto max-w-6xl px-6 py-8 lg:px-10">
         <div className="mb-8 flex items-center justify-between">
           <div>
@@ -198,7 +198,7 @@ export default function AdminDashboard() {
                   </div>
                   <button
                     onClick={() => handleDeleteMessage(msg.id)}
-                    className="shrink-0 border border-border px-3 py-1.5 text-xs text-stone-400 opacity-0 transition-all                     hover:border-warm hover:text-warm group-hover:opacity-100"
+                    className="shrink-0 border border-border px-3 py-1.5 text-xs text-stone-400 opacity-0 transition-all                     hover:border-terracotta hover:text-terracotta group-hover:opacity-100"
                   >
                     Delete
                   </button>
@@ -313,7 +313,7 @@ export default function AdminDashboard() {
                     </p>
                     <button
                       onClick={() => handleDeleteGallery(item.id)}
-                      className="mt-2 self-start border border-white/30 px-2.5 py-1 text-[10px] uppercase tracking-[0.1em] text-white/70 transition-colors hover:border-warm hover:text-warm"
+                      className="mt-2 self-start border border-white/30 px-2.5 py-1 text-[10px] uppercase tracking-[0.1em] text-white/70 transition-colors hover:border-terracotta hover:text-terracotta"
                     >
                       Delete
                     </button>

@@ -5,11 +5,11 @@ import Reveal from './Reveal'
 
 export default function ContactPreview() {
   return (
-    <section id="contact" className="border-t border-border bg-cream-100">
+    <section id="contact" className="bg-cream/75">
       <div className="mx-auto max-w-7xl px-6 py-20 lg:px-16 lg:py-32">
         <Reveal y={20}>
           <div className="text-center">
-            <span className="text-xs uppercase tracking-[0.25em] text-gold">
+            <span className="inline-block rounded-full bg-pink/20 px-4 py-1 text-xs font-bold uppercase tracking-[0.2em] text-pink">
               Get In Touch
             </span>
             <h2 className="mt-4 font-serif text-3xl leading-tight tracking-tight text-charcoal md:text-5xl">
@@ -17,7 +17,7 @@ export default function ContactPreview() {
               <br />
               <span className="text-gold">Your Project</span>
             </h2>
-            <div className="mx-auto mt-4 h-[2px] w-12 bg-gold" />
+            <div className="mx-auto mt-4 h-1 w-16 rounded-full bg-gradient-to-r from-gold to-pink" />
             <p className="mx-auto mt-5 max-w-lg text-sm leading-relaxed text-charcoal/85 md:text-base">
               Reach out to us for a complimentary consultation. We serve
               residential and commercial clients across all of Kerala.
@@ -29,9 +29,9 @@ export default function ContactPreview() {
           <div className="mx-auto mt-10 flex max-w-2xl flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
             <a
               href="tel:+919526100862"
-              className="flex w-full items-center justify-center gap-3 border border-border bg-cream px-5 py-4 transition-all duration-300 hover:border-gold hover:shadow-md sm:w-auto sm:px-6"
+              className="flex w-full items-center justify-center gap-3 rounded-xl bg-white px-5 py-4 shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 sm:w-auto sm:px-6"
             >
-              <span className="text-xs uppercase tracking-[0.15em] text-gold">
+              <span className="text-xs font-bold uppercase tracking-[0.15em] text-gold">
                 Call
               </span>
               <span className="font-serif text-base text-charcoal sm:text-lg">
@@ -40,7 +40,7 @@ export default function ContactPreview() {
             </a>
             <Link
               href="/contact"
-              className="w-full border border-charcoal bg-charcoal px-7 py-4 text-center text-xs uppercase tracking-[0.2em] text-cream transition-all duration-300 hover:bg-gold hover:border-gold active:scale-[0.98] sm:w-auto sm:px-8"
+              className="w-full rounded-full bg-gradient-to-r from-gold to-orange px-7 py-4 text-center text-xs font-bold uppercase tracking-[0.15em] text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl active:scale-[0.98] sm:w-auto sm:px-8"
             >
               Full Contact Page
             </Link>

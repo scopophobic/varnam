@@ -37,8 +37,8 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled || mobileOpen
-          ? 'bg-cream/90 backdrop-blur-lg shadow-sm'
-          : 'bg-transparent'
+          ? 'bg-white/95 backdrop-blur-lg shadow-lg'
+          : 'bg-cream/75'
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3.5 lg:px-10 lg:py-4">
@@ -61,10 +61,10 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`link-underline text-xs uppercase tracking-[0.2em] transition-colors ${
+                className={`text-xs font-bold uppercase tracking-[0.2em] transition-colors ${
                   isActive
                     ? 'text-gold'
-                    : 'text-charcoal/85 hover:text-charcoal'
+                    : 'text-charcoal/85 hover:text-gold'
                 }`}
               >
                 {link.label}
@@ -105,7 +105,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 top-0 z-40 flex flex-col items-center justify-center bg-cream/98 backdrop-blur-xl"
+            className="fixed inset-0 top-0 z-40 flex flex-col items-center justify-center bg-gradient-to-b from-white via-cream-50 to-white"
           >
             <div className="flex flex-col items-center gap-7">
               {navLinks.map((link, i) => (
@@ -129,19 +129,19 @@ export default function Navbar() {
               transition={{ delay: 0.35 }}
               className="absolute bottom-12 left-0 right-0 text-center"
             >
-              <p className="text-xs uppercase tracking-[0.2em] text-stone-400">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-stone-400">
                 Follow Us
               </p>
               <div className="mt-3 flex items-center justify-center gap-4">
-                <a href="tel:+919526100862" className="text-xs text-charcoal/60 hover:text-gold transition-colors">
+                <a href="tel:+919526100862" className="text-xs text-charcoal/60 hover:text-gold font-bold uppercase tracking-[0.15em] transition-colors">
                   Call
                 </a>
                 <span className="text-stone-300">·</span>
-                <a href="mailto:info@varnampainting.com" className="text-xs text-charcoal/60 hover:text-gold transition-colors">
+                <a href="mailto:info@varnampainting.com" className="text-xs text-charcoal/60 hover:text-gold font-bold uppercase tracking-[0.15em] transition-colors">
                   Email
                 </a>
                 <span className="text-stone-300">·</span>
-                <a href="https://wa.me/919526100862" target="_blank" rel="noopener noreferrer" className="text-xs text-charcoal/60 hover:text-gold transition-colors">
+                <a href="https://wa.me/919526100862" target="_blank" rel="noopener noreferrer" className="text-xs text-charcoal/60 hover:text-gold font-bold uppercase tracking-[0.15em] transition-colors">
                   WhatsApp
                 </a>
               </div>

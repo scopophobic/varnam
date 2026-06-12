@@ -36,7 +36,7 @@ export default function AdminLogin() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-cream px-6">
+    <div className="flex min-h-screen items-center justify-center bg-cream/75 px-6">
       <form
         onSubmit={handleSubmit}
         className="w-full max-w-sm border border-border bg-cream p-10"
@@ -51,7 +51,7 @@ export default function AdminLogin() {
         </div>
 
         {error && (
-          <p className="mb-4 border border-warm/30 bg-warm/5 px-4 py-2 text-xs text-warm">
+          <p className="mb-4 border border-terracotta/30 bg-terracotta/5 px-4 py-2 text-xs text-terracotta">
             {error}
           </p>
         )}

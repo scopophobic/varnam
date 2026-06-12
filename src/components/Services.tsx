@@ -15,6 +15,7 @@ const services = [
     image:
       'https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=900&q=85&auto=format&fit=crop',
     align: 'left',
+    gradient: 'from-gold to-orange',
   },
   {
     title: 'Full-Service Residential & Commercial Painting',
@@ -24,6 +25,7 @@ const services = [
     image:
       'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=900&q=85&auto=format&fit=crop',
     align: 'right',
+    gradient: 'from-teal to-blue',
   },
   {
     title: 'Advanced Texture Coating Works',
@@ -33,28 +35,23 @@ const services = [
     image:
       'https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?w=900&q=85&auto=format&fit=crop',
     align: 'left',
+    gradient: 'from-pink to-terracotta',
   },
-]
-
-const colorClasses = [
-  { number: 'text-gold/20', tagline: 'text-gold', numberHover: 'group-hover:text-gold' },
-  { number: 'text-teal/20', tagline: 'text-teal', numberHover: 'group-hover:text-teal' },
-  { number: 'text-warm/20', tagline: 'text-warm', numberHover: 'group-hover:text-warm' },
 ]
 
 export default function Services() {
   return (
-    <section id="services" className="border-t border-border bg-cream">
+    <section id="services" className="bg-cream/75 overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 py-20 lg:px-16 lg:py-32">
         <Reveal y={20}>
           <div className="text-center">
-            <span className="text-xs uppercase tracking-[0.25em] text-gold">
+            <span className="inline-block rounded-full bg-blue/20 px-4 py-1 text-xs font-bold uppercase tracking-[0.2em] text-blue">
               What We Do
             </span>
             <h2 className="mt-4 font-serif text-3xl leading-tight tracking-tight text-charcoal md:text-5xl">
               Our Services
             </h2>
-            <div className="mx-auto mt-4 h-[2px] w-12 bg-gold" />
+            <div className="mx-auto mt-4 h-1 w-16 rounded-full bg-gradient-to-r from-blue to-pink" />
           </div>
         </Reveal>
 
@@ -75,31 +72,29 @@ export default function Services() {
               {service.align === 'right' ? (
                 <>
                   <div className="order-2 lg:order-1">
-                    <span
-                      className={`font-serif text-6xl leading-none transition-colors duration-500 sm:text-7xl ${colorClasses[index].number} ${colorClasses[index].numberHover}`}
-                    >
+                    <div className={`mb-4 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${service.gradient} text-white text-2xl font-bold shadow-lg`}>
                       {String(index + 1).padStart(2, '0')}
-                    </span>
-                    <h3 className="mt-2 font-serif text-xl leading-tight text-charcoal md:text-3xl">
+                    </div>
+                    <h3 className="font-serif text-xl leading-tight text-charcoal md:text-3xl">
                       {service.title}
                     </h3>
-                    <p className={`mt-2 text-xs uppercase tracking-[0.2em] ${colorClasses[index].tagline}`}>
+                    <p className={`mt-2 text-xs font-bold uppercase tracking-[0.2em] text-transparent bg-clip-text bg-gradient-to-r ${service.gradient}`}>
                       {service.tagline}
                     </p>
-                    <div className={`mt-4 h-[1px] w-16 ${colorClasses[index].tagline.replace('text-', 'bg-')}/50`} />
+                    <div className={`mt-4 h-1 w-16 rounded-full bg-gradient-to-r ${service.gradient}`} />
                     <p className="mt-5 text-sm leading-relaxed text-charcoal/85 md:text-base">
                       {service.description}
                     </p>
                     <Link
                       href="/contact"
-                      className="link-underline mt-5 inline-block text-xs uppercase tracking-[0.2em] text-charcoal"
+                      className="link-underline mt-5 inline-block text-xs font-bold uppercase tracking-[0.2em] text-charcoal hover:text-gold"
                     >
-                      Enquire About This Service
+                      Enquire About This Service →
                     </Link>
                   </div>
                   <div className="order-1 lg:order-2">
                     <ParallaxImage speed={0.08}>
-                      <div className="group relative aspect-[4/3] overflow-hidden">
+                      <div className={`group relative aspect-[4/3] overflow-hidden rounded-2xl shadow-xl`}>
                         <Image
                           src={service.image}
                           alt={service.title}
@@ -107,7 +102,7 @@ export default function Services() {
                           className="object-cover transition-all duration-700 group-hover:scale-105"
                           sizes="(max-width: 1024px) 100vw, 50vw"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-charcoal/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-charcoal/20 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                       </div>
                     </ParallaxImage>
                   </div>
@@ -115,31 +110,29 @@ export default function Services() {
               ) : (
                 <>
                   <div className="order-2 lg:order-2">
-                    <span
-                      className={`font-serif text-6xl leading-none transition-colors duration-500 sm:text-7xl ${colorClasses[index].number} ${colorClasses[index].numberHover}`}
-                    >
+                    <div className={`mb-4 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${service.gradient} text-white text-2xl font-bold shadow-lg`}>
                       {String(index + 1).padStart(2, '0')}
-                    </span>
-                    <h3 className="mt-2 font-serif text-xl leading-tight text-charcoal md:text-3xl">
+                    </div>
+                    <h3 className="font-serif text-xl leading-tight text-charcoal md:text-3xl">
                       {service.title}
                     </h3>
-                    <p className={`mt-2 text-xs uppercase tracking-[0.2em] ${colorClasses[index].tagline}`}>
+                    <p className={`mt-2 text-xs font-bold uppercase tracking-[0.2em] text-transparent bg-clip-text bg-gradient-to-r ${service.gradient}`}>
                       {service.tagline}
                     </p>
-                    <div className={`mt-4 h-[1px] w-16 ${colorClasses[index].tagline.replace('text-', 'bg-')}/50`} />
+                    <div className={`mt-4 h-1 w-16 rounded-full bg-gradient-to-r ${service.gradient}`} />
                     <p className="mt-5 text-sm leading-relaxed text-charcoal/85 md:text-base">
                       {service.description}
                     </p>
                     <Link
                       href="/contact"
-                      className="link-underline mt-5 inline-block text-xs uppercase tracking-[0.2em] text-charcoal"
+                      className="link-underline mt-5 inline-block text-xs font-bold uppercase tracking-[0.2em] text-charcoal hover:text-gold"
                     >
-                      Enquire About This Service
+                      Enquire About This Service →
                     </Link>
                   </div>
                   <div className="order-1 lg:order-1">
                     <ParallaxImage speed={0.08}>
-                      <div className="group relative aspect-[4/3] overflow-hidden">
+                      <div className={`group relative aspect-[4/3] overflow-hidden rounded-2xl shadow-xl`}>
                         <Image
                           src={service.image}
                           alt={service.title}
@@ -147,7 +140,7 @@ export default function Services() {
                           className="object-cover transition-all duration-700 group-hover:scale-105"
                           sizes="(max-width: 1024px) 100vw, 50vw"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-charcoal/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-charcoal/20 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                       </div>
                     </ParallaxImage>
                   </div>

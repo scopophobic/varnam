@@ -1,25 +1,29 @@
 import Link from 'next/link'
+import FloralOrnament from './FloralOrnament'
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border bg-charcoal text-cream/70">
+    <footer className="bg-gradient-to-br from-charcoal to-charcoal-800 text-cream/80 relative overflow-hidden">
+      <FloralOrnament className="absolute top-8 right-8 h-20 w-20 text-gold/8" />
+      <FloralOrnament className="absolute bottom-8 left-8 h-14 w-14 -rotate-12 text-teal/8" />
       <div className="mx-auto max-w-7xl px-6 py-14 lg:px-16 lg:py-24">
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:gap-12 lg:grid-cols-4">
           <div className="sm:col-span-2 lg:col-span-1">
-            <h3 className="font-serif text-lg tracking-wide text-cream">
+            <h3 className="font-serif text-lg tracking-wide text-white">
               Varnam<span className="text-gold">.</span>
             </h3>
             <p className="mt-1 text-[9px] uppercase tracking-[0.3em] text-cream/40 mlm lg:text-[10px]">
               Painting and Designs
             </p>
             <p className="mt-4 text-sm leading-relaxed text-cream/65">
-              We are a highly professional painting company in Kerala, serving
-              both residential and commercial buildings all across the State.
+              Bringing life to spaces through colours. Varnam means colours in
+              Malayalam — and we bring the perfect palette to every corner of
+              Kerala.
             </p>
           </div>
 
           <div>
-            <h4 className="text-xs uppercase tracking-[0.2em] text-gold">
+            <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-gold">
               Quick Links
             </h4>
             <ul className="mt-5 space-y-2.5">
@@ -43,7 +47,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-xs uppercase tracking-[0.2em] text-gold">
+            <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-gold">
               Our Services
             </h4>
             <ul className="mt-5 space-y-2.5">
@@ -61,7 +65,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-xs uppercase tracking-[0.2em] text-gold">
+            <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-gold">
               Contact
             </h4>
             <div className="mt-5 space-y-3.5 text-sm text-cream/65">

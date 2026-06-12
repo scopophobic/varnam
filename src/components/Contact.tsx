@@ -50,11 +50,11 @@ export default function Contact() {
   }
 
   return (
-    <section className="border-t border-border bg-cream-100">
+    <section className="bg-cream/75">
       <div className="mx-auto max-w-7xl px-6 py-20 lg:px-16 lg:py-32">
         <Reveal y={20}>
           <div className="text-center">
-            <span className="text-xs uppercase tracking-[0.25em] text-gold">
+            <span className="inline-block rounded-full bg-pink/20 px-4 py-1 text-xs font-bold uppercase tracking-[0.2em] text-pink">
               <span className="mlm text-sm tracking-normal">ബന്ധപ്പെടുക</span>
               <span className="mx-2 opacity-40">·</span>
               Get In Touch
@@ -64,7 +64,7 @@ export default function Contact() {
               <br />
               <span className="text-gold">Your Project</span>
             </h2>
-            <div className="mx-auto mt-4 h-[2px] w-12 bg-gold" />
+            <div className="mx-auto mt-4 h-1 w-16 rounded-full bg-gradient-to-r from-gold to-pink" />
             <p className="mx-auto mt-5 max-w-xl text-sm leading-relaxed text-charcoal/85 md:text-base">
               Fill out the form below and we&apos;ll get back to you within 24
               hours. Or reach us directly via phone or WhatsApp.
@@ -79,12 +79,12 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             onSubmit={handleSubmit}
-            className="space-y-5"
+            className="space-y-5 rounded-2xl bg-white p-8 shadow-lg"
           >
             <div>
               <label
                 htmlFor="name"
-                className="block text-xs uppercase tracking-[0.15em] text-charcoal/75"
+                className="block text-xs font-bold uppercase tracking-[0.15em] text-charcoal/75"
               >
                 Your Name
               </label>
@@ -96,7 +96,7 @@ export default function Contact() {
                 onChange={(e) =>
                   setFormData({ ...formData, name: e.target.value })
                 }
-                className="mt-2 w-full border-b border-border bg-transparent py-2.5 text-sm text-charcoal outline-none transition-colors focus:border-gold"
+                className="mt-2 w-full rounded-xl border border-border bg-cream-50 px-4 py-3 text-sm text-charcoal outline-none transition-all focus:border-gold focus:ring-2 focus:ring-gold/20"
                 placeholder="John Doe"
               />
             </div>
@@ -104,7 +104,7 @@ export default function Contact() {
             <div>
               <label
                 htmlFor="phone"
-                className="block text-xs uppercase tracking-[0.15em] text-charcoal/75"
+                className="block text-xs font-bold uppercase tracking-[0.15em] text-charcoal/75"
               >
                 Phone Number
               </label>
@@ -116,7 +116,7 @@ export default function Contact() {
                 onChange={(e) =>
                   setFormData({ ...formData, phone: e.target.value })
                 }
-                className="mt-2 w-full border-b border-border bg-transparent py-2.5 text-sm text-charcoal outline-none transition-colors focus:border-gold"
+                className="mt-2 w-full rounded-xl border border-border bg-cream-50 px-4 py-3 text-sm text-charcoal outline-none transition-all focus:border-gold focus:ring-2 focus:ring-gold/20"
                 placeholder="+91 98765 43210"
               />
             </div>
@@ -124,7 +124,7 @@ export default function Contact() {
             <div>
               <label
                 htmlFor="district"
-                className="block text-xs uppercase tracking-[0.15em] text-charcoal/75"
+                className="block text-xs font-bold uppercase tracking-[0.15em] text-charcoal/75"
               >
                 Project Location (District)
               </label>
@@ -135,7 +135,7 @@ export default function Contact() {
                 onChange={(e) =>
                   setFormData({ ...formData, district: e.target.value })
                 }
-                className="mt-2 w-full border-b border-border bg-transparent py-2.5 text-sm text-charcoal outline-none transition-colors focus:border-gold"
+                className="mt-2 w-full rounded-xl border border-border bg-cream-50 px-4 py-3 text-sm text-charcoal outline-none transition-all focus:border-gold focus:ring-2 focus:ring-gold/20"
               >
                 <option value="" disabled>
                   Select your district
@@ -151,7 +151,7 @@ export default function Contact() {
             <div>
               <label
                 htmlFor="scope"
-                className="block text-xs uppercase tracking-[0.15em] text-charcoal/75"
+                className="block text-xs font-bold uppercase tracking-[0.15em] text-charcoal/75"
               >
                 Service Scope
               </label>
@@ -163,14 +163,14 @@ export default function Contact() {
                 onChange={(e) =>
                   setFormData({ ...formData, scope: e.target.value })
                 }
-                className="mt-2 w-full resize-none border-b border-border bg-transparent py-2.5 text-sm text-charcoal outline-none transition-colors focus:border-gold"
+                className="mt-2 w-full resize-none rounded-xl border border-border bg-cream-50 px-4 py-3 text-sm text-charcoal outline-none transition-all focus:border-gold focus:ring-2 focus:ring-gold/20"
                 placeholder="Briefly describe your project..."
               />
             </div>
 
             {submitted ? (
-              <div className="border border-gold/30 bg-gold/5 px-6 py-5 text-center">
-                <p className="font-serif text-lg text-gold-dark">
+              <div className="rounded-xl bg-gradient-to-r from-gold/20 to-pink/20 p-6 text-center">
+                <p className="font-serif text-lg font-bold text-gold-dark">
                   Thank You!
                 </p>
                 <p className="mt-1 text-sm text-charcoal/75">
@@ -180,7 +180,7 @@ export default function Contact() {
             ) : (
               <button
                 type="submit"
-                className="w-full border border-charcoal bg-charcoal px-7 py-3.5 text-xs uppercase tracking-[0.2em] text-cream transition-all duration-300 hover:bg-teal hover:border-teal active:scale-[0.98]"
+                className="w-full rounded-full bg-gradient-to-r from-gold to-orange px-7 py-3.5 text-xs font-bold uppercase tracking-[0.15em] text-white shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-xl active:scale-[0.98]"
               >
                 Send via WhatsApp
               </button>
@@ -194,9 +194,9 @@ export default function Contact() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="flex flex-col justify-center"
           >
-            <div className="space-y-7">
+            <div className="space-y-7 rounded-2xl bg-white p-8 shadow-lg">
               <div>
-                <span className="text-xs uppercase tracking-[0.2em] text-gold">
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-gold">
                   Call Us
                 </span>
                 <div className="mt-2 space-y-1.5">
@@ -216,7 +216,7 @@ export default function Contact() {
               </div>
 
               <div>
-                <span className="text-xs uppercase tracking-[0.2em] text-gold">
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-gold">
                   Email Us
                 </span>
                 <a
@@ -228,7 +228,7 @@ export default function Contact() {
               </div>
 
               <div>
-                <span className="text-xs uppercase tracking-[0.2em] text-gold">
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-gold">
                   Visit Us
                 </span>
                 <p className="mt-2 font-serif text-base leading-relaxed text-charcoal/85 sm:text-lg">
@@ -241,7 +241,7 @@ export default function Contact() {
               </div>
 
               <div>
-                <span className="text-xs uppercase tracking-[0.2em] text-gold">
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-gold">
                   WhatsApp
                 </span>
                 <a
@@ -257,7 +257,7 @@ export default function Contact() {
               <div className="pt-2">
                 <Link
                   href="/"
-                  className="group inline-flex items-center gap-2 border border-border px-5 py-2.5 text-xs uppercase tracking-[0.2em] text-charcoal transition-all duration-300 hover:border-charcoal sm:px-6 sm:py-3"
+                  className="group inline-flex items-center gap-2 rounded-full border-2 border-border px-5 py-2.5 text-xs font-bold uppercase tracking-[0.15em] text-charcoal transition-all duration-300 hover:border-gold hover:bg-gold/10 sm:px-6 sm:py-3"
                 >
                   <span className="inline-block transition-transform duration-300 group-hover:-translate-x-1">
                     ←

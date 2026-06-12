@@ -71,17 +71,17 @@ export default function Gallery() {
   }, [selectedIndex])
 
   return (
-    <section className="border-t border-border bg-cream">
+    <section className="bg-cream/75">
       <div className="mx-auto max-w-7xl px-6 py-20 lg:px-16 lg:py-32">
         <Reveal y={20}>
           <div className="text-center">
-            <span className="text-xs uppercase tracking-[0.25em] text-gold">
+            <span className="inline-block rounded-full bg-pink/20 px-4 py-1 text-xs font-bold uppercase tracking-[0.2em] text-pink">
               Gallery
             </span>
             <h2 className="mt-4 font-serif text-3xl leading-tight tracking-tight text-charcoal md:text-5xl">
               Our Portfolio
             </h2>
-            <div className="mx-auto mt-4 h-[2px] w-12 bg-gold" />
+            <div className="mx-auto mt-4 h-1 w-16 rounded-full bg-gradient-to-r from-pink to-gold" />
             <p className="mx-auto mt-5 max-w-xl text-sm leading-relaxed text-charcoal/85 md:text-base">
               Browse through our completed projects across Kerala — from luxury
               interiors to commercial transformations.
@@ -126,7 +126,7 @@ export default function Gallery() {
           <div className="mt-12 text-center">
             <Link
               href="/"
-              className="group inline-flex items-center gap-2 border border-border px-7 py-3 text-xs uppercase tracking-[0.2em] text-charcoal transition-all duration-300 hover:border-charcoal sm:px-8 sm:py-3.5"
+              className="group inline-flex items-center gap-2 rounded-full border-2 border-border px-7 py-3 text-xs font-bold uppercase tracking-[0.15em] text-charcoal transition-all duration-300 hover:border-gold hover:bg-gold/10 sm:px-8 sm:py-3.5"
             >
               <span className="inline-block transition-transform duration-300 group-hover:-translate-x-1">
                 ←
