@@ -53,9 +53,6 @@ export default function ContactPreview() {
               +91 9656200862
             </a>
             <span className="hidden text-stone-300 sm:inline">·</span>
-            <a href="mailto:info@varnampainting.com" className="link-underline">
-              info@varnampainting.com
-            </a>
             <span className="hidden text-stone-300 sm:inline">·</span>
             <span>Alappuzha, Kerala</span>
           </div>

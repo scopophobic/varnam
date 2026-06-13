@@ -147,10 +147,6 @@ export default function Navbar() {
                 Call
               </a>
               <span className="text-stone-300">·</span>
-              <a href="mailto:info@varnampainting.com" className="text-xs text-charcoal/60 hover:text-gold font-bold uppercase tracking-[0.15em] whitespace-nowrap transition-colors">
-                Email
-              </a>
-              <span className="text-stone-300">·</span>
               <a href="https://wa.me/919526100862" target="_blank" rel="noopener noreferrer" className="text-xs text-charcoal/60 hover:text-gold font-bold uppercase tracking-[0.15em] whitespace-nowrap transition-colors">
                 WhatsApp
               </a>

@@ -90,12 +90,6 @@ export default function Footer() {
                   +91 9656200862
                 </a>
               </div>
-              <a
-                href="mailto:info@varnampainting.com"
-                className="link-underline block text-cream/65 transition-colors hover:text-cream"
-              >
-                info@varnampainting.com
-              </a>
               <div className="mt-4 flex items-center gap-3">
                 <a
                   href="https://www.instagram.com/varnam_painting_and_designs/"
