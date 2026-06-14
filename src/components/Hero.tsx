@@ -96,7 +96,7 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        <div className="order-2 lg:order-1 flex flex-col justify-center px-5 pb-8 pt-3 lg:px-0 lg:py-0">
+        <div className="order-2 lg:order-1 flex flex-col justify-center px-5 pb-8 pt-1 lg:px-0 lg:py-0">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}

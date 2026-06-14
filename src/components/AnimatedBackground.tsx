@@ -18,7 +18,7 @@ export default function AnimatedBackground() {
     const canvasB = document.createElement('canvas')
 
     canvasB.style.cssText =
-      'position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;'
+      'width:100%;height:100%;pointer-events:none;'
 
     container.appendChild(canvasB)
 
@@ -162,7 +162,7 @@ export default function AnimatedBackground() {
   return (
     <div
       ref={containerRef}
-      className="content--canvas fixed inset-0 z-0"
+      className="content--canvas fixed inset-0 z-0 bg-[#0d0a08]"
       aria-hidden="true"
     />
   )
