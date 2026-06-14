@@ -162,7 +162,7 @@ export default function AnimatedBackground() {
   return (
     <div
       ref={containerRef}
-      className="content--canvas fixed inset-0 -z-10"
+      className="content--canvas fixed inset-0 z-0"
       aria-hidden="true"
     />
   )

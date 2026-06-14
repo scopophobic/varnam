@@ -38,7 +38,7 @@ export default function RootLayout({
     <html lang="en" data-scroll-behavior="smooth" className={`${playfair.variable} ${jakarta.variable} ${malayalam.variable}`}>
       <body className="font-sans bg-[#0d0a08] text-charcoal antialiased selection:bg-gold selection:text-charcoal">
         <AnimatedBackground />
-        <div className="relative z-10">
+        <div className="relative z-[1]">
           <ScrollProgress />
           <Navbar />
           {children}

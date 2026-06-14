@@ -6,10 +6,10 @@ import Image from 'next/image'
 import FloralOrnament from './FloralOrnament'
 
 const heroImages = [
-  { src: '/images/carousel/hero-1.jpeg', alt: 'Painting work' },
-  { src: '/images/carousel/hero-2.jpeg', alt: 'Interior painting' },
-  { src: '/images/carousel/hero-3.jpeg', alt: 'Design finish' },
-  { src: '/images/carousel/hero-4.jpeg', alt: 'Living space' },
+  { src: 'https://res.cloudinary.com/drzdylixy/image/upload/q_auto,f_auto,w_1200/v1781374258/varnam-carousel/ldvfvittpxupf1gobfa8.jpg', alt: 'Painting work' },
+  { src: 'https://res.cloudinary.com/drzdylixy/image/upload/q_auto,f_auto,w_1200/v1781374260/varnam-carousel/vbotqreexplqeyjkycgs.jpg', alt: 'Interior painting' },
+  { src: 'https://res.cloudinary.com/drzdylixy/image/upload/q_auto,f_auto,w_1200/v1781374261/varnam-carousel/uromazzlquad1thv1eym.jpg', alt: 'Design finish' },
+  { src: 'https://res.cloudinary.com/drzdylixy/image/upload/q_auto,f_auto,w_1200/v1781374263/varnam-carousel/kfr1mdofqs6dhpbsjqzw.jpg', alt: 'Living space' },
 ]
 
 const whatsappMsg = encodeURIComponent(
@@ -34,6 +34,12 @@ export default function Hero() {
     return () => clearInterval(timer)
   }, [])
 
+  useEffect(() => {
+    const next = (currentIndex + 1) % heroImages.length
+    const img = new window.Image()
+    img.src = heroImages[next].src
+  }, [currentIndex])
+
   return (
     <section
       id="home"
@@ -55,7 +61,7 @@ export default function Hero() {
           style={{ y: imgY, opacity }}
           className="order-1 lg:order-2 relative h-[38vh] w-full overflow-hidden lg:h-screen lg:min-h-screen"
         >
-          <AnimatePresence mode="popLayout">
+          <AnimatePresence mode="sync">
             <motion.div
               key={currentIndex}
               initial={{ opacity: 0 }}
