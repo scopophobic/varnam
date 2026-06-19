@@ -25,15 +25,15 @@ export default function AnimatedBackground() {
     const ctxA = canvasA.getContext('2d')!
     const ctxB = canvasB.getContext('2d')!
 
-    const circleCount = 150
+    const circleCount = 180
     const circlePropCount = 8
     const circlePropsLength = circleCount * circlePropCount
     const baseSpeed = 0.1
     const rangeSpeed = 1
     const baseTTL = 150
     const rangeTTL = 200
-    const baseRadius = 100
-    const rangeRadius = 200
+    const baseRadius = 120
+    const rangeRadius = 220
     const rangeHue = 360
     const xOff = 0.0015
     const yOff = 0.0015
@@ -74,7 +74,7 @@ export default function AnimatedBackground() {
 
     function drawCircle(x: number, y: number, life: number, ttl: number, radius: number, hue: number) {
       ctxA.save()
-      ctxA.fillStyle = `hsla(${hue},90%,50%,${fadeInOut(life, ttl)})`
+      ctxA.fillStyle = `hsla(${hue},100%,60%,${fadeInOut(life, ttl)})`
       ctxA.beginPath()
       ctxA.arc(x, y, radius, 0, TAU)
       ctxA.fill()
