@@ -1,10 +1,74 @@
 [
   {
     "url": "https://res.cloudinary.com/drzdylixy/image/upload/v1781009014/varnam-gallery/xegpdstwoyklsnwrf7mq.jpg",
-    "title": "yout",
-    "category": "houd",
-    "location": "loc",
+    "title": "",
+    "category": "",
+    "location": "",
     "id": "8f93efd6-496c-4ff1-8a1a-5cf098eab008",
     "createdAt": "2026-06-09T12:43:36.030Z"
+  },
+  {
+    "url": "/images/carousel/carousel-1.jpeg",
+    "title": "",
+    "category": "",
+    "location": "Alappuzha",
+    "id": "3e8dbdf8-a3f1-4df2-a39c-29b5c219001b",
+    "createdAt": "2026-06-23T12:45:00.000Z"
+  },
+  {
+    "url": "/images/carousel/carousel-2.jpeg",
+    "title": "",
+    "category": "",
+    "location": "Alappuzha",
+    "id": "9fb2e1f2-1fb2-4bf2-a39c-738b812019ab",
+    "createdAt": "2026-06-23T12:45:01.000Z"
+  },
+  {
+    "url": "/images/carousel/carousel-3.jpeg",
+    "title": "",
+    "category": "",
+    "location": "Alappuzha",
+    "id": "41b8a1c9-6fb2-45e5-ab32-8419cb189ab1",
+    "createdAt": "2026-06-23T12:45:02.000Z"
+  },
+  {
+    "url": "/images/carousel/carousel-4.jpeg",
+    "title": "",
+    "category": "",
+    "location": "Alappuzha",
+    "id": "12b9a7c8-3ab5-4df1-bc29-7109cb189bc9",
+    "createdAt": "2026-06-23T12:45:03.000Z"
+  },
+  {
+    "url": "/images/carousel/carousel-5.jpeg",
+    "title": "",
+    "category": "",
+    "location": "Alappuzha",
+    "id": "8f12cb89-7ab5-4df2-bc89-109cb189e123",
+    "createdAt": "2026-06-23T12:45:04.000Z"
+  },
+  {
+    "url": "/images/carousel/carousel-6.jpeg",
+    "title": "",
+    "category": "",
+    "location": "Alappuzha",
+    "id": "a719c892-abf1-4bf2-a89c-81203bc9ea89",
+    "createdAt": "2026-06-23T12:45:05.000Z"
+  },
+  {
+    "url": "/images/carousel/carousel-7.jpeg",
+    "title": "",
+    "category": "",
+    "location": "Alappuzha",
+    "id": "bc28cb89-1fb2-4cf2-a3bc-102bc3ea89ef",
+    "createdAt": "2026-06-23T12:45:06.000Z"
+  },
+  {
+    "url": "/images/carousel/carousel-8.jpeg",
+    "title": "",
+    "category": "",
+    "location": "Alappuzha",
+    "id": "d8a2bc89-7cf2-4df2-bc29-103bc3ea89ab",
+    "createdAt": "2026-06-23T12:45:07.000Z"
   }
 ]
