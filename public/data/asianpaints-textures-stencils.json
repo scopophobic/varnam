@@ -1,0 +1,178 @@
+[
+  {
+    "id": "apt_safari",
+    "name": "Royale Play Safari",
+    "malayalam": "സഫാരി ഫിനിഷ്",
+    "category": "textures",
+    "image": "https://images.unsplash.com/photo-1544207240-8b1025eb7aeb?w=800&q=80",
+    "desc": "Official Royale Play Safari texture. A water-based interior wall texture paint containing metallic pigments. Imparts a wind-swept desert sand dune effect with dynamic metallic lustre.",
+    "rooms": "Living Room Accents, Media Walls, Dining Backdrops",
+    "finish": "Metallic Satin Sand-patina Finish",
+    "maintenance": "Highly Washable & Scrubbable"
+  },
+  {
+    "id": "apt_infinitex",
+    "name": "Royale Play Infinitex (Sandstone)",
+    "malayalam": "മണൽക്കല്ല് ഫിനിഷ്",
+    "category": "textures",
+    "image": "https://images.unsplash.com/photo-1531685250784-7569952593d2?w=800&q=80",
+    "desc": "Official Royale Play Infinitex nature-inspired texture. Sculpted, gritty sandstone plaster simulating natural rock block layouts. Perfect for massive architectural features.",
+    "rooms": "Exterior Elevations, Double-Height Walls, Sit-outs",
+    "finish": "Granular Concrete / Raw Sandstone Finish",
+    "maintenance": "Weatherproof & Impact Resistant"
+  },
+  {
+    "id": "apt_stucco",
+    "name": "Royale Play Stucco (Venetian)",
+    "malayalam": "മെറ്റാലിക് സ്റ്റക്കോ",
+    "category": "textures",
+    "image": "https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=800&q=80",
+    "desc": "Official Royale Play Stucco marble finish. A slaked-lime plaster coating buffed to a mirror-like high-sheen polish. Provides the ultimate luxury feel of natural Italian marble slabs.",
+    "rooms": "Foyer Arches, Bed Headboards, Puja Walls",
+    "finish": "Glossy Mirror Venetian Plaster Finish",
+    "maintenance": "100% Washable & Scratch Resistant"
+  },
+  {
+    "id": "apt_taana_baana",
+    "name": "Royale Play Taana-Baana (Linen)",
+    "malayalam": "നെയ്ത്ത് ഫിനിഷ്",
+    "category": "textures",
+    "image": "https://images.unsplash.com/photo-1549490349-8643362247b5?w=800&q=80",
+    "desc": "Official Taana-Baana heritage series fabric texture. Mimics the crossed weave lines of raw, organic hand-woven Indian linen. Adds a warm, calm, and rustic textile feel to walls.",
+    "rooms": "Bedrooms, Reading Rooms, Lounges",
+    "finish": "Fine Crossed Fabric Weave Finish",
+    "maintenance": "Dry vacuum clean / Gentle damp wipe"
+  },
+  {
+    "id": "apt_dune",
+    "name": "Royale Play Dune (Silver Drizzle)",
+    "malayalam": "ഡ്യൂൺ സിൽവർ",
+    "category": "textures",
+    "image": "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=800&q=80",
+    "desc": "Official Royale Play Dune finish. Metallic sand texture loaded with shimmering silver rain effects. Reacts dynamically to both warm natural sunlight and indoor highlight spots.",
+    "rooms": "Master Bedrooms, TV Backdrops, Study Backdrops",
+    "finish": "Sandy Shimmering Metallic Finish",
+    "maintenance": "Washable & Stain Resistant"
+  },
+  {
+    "id": "apt_concrete",
+    "name": "Royale Play Archi Concrete",
+    "malayalam": "സിമന്റ് കോൺക്രീറ്റ്",
+    "category": "textures",
+    "image": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80",
+    "desc": "Official Archi Concrete industrial finish. Mimics exposed, distressed raw concrete plaster panels. Perfectly complements modern loft design aesthetics, metal accents, and wood decors.",
+    "rooms": "Creative Offices, Media Consoles, Library Walls",
+    "finish": "Distressed Matte Cement Finish",
+    "maintenance": "Heavy-duty Scratch-proof & Durable"
+  },
+  {
+    "id": "apt_marmorino",
+    "name": "Royale Play Marmorino",
+    "malayalam": "മാർമോറിനോ പ്ലാസ്റ്റർ",
+    "category": "textures",
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
+    "desc": "Official Royale Play Marmorino slaked-lime plaster. Recreates a soft, semi-polished, multi-tonal limestone finish showing deep structural layers and elegant light-scattering properties.",
+    "rooms": "Staircase Backdrops, Living Hallways, Entrances",
+    "finish": "Semi-polished Matte-satin Stone Finish",
+    "maintenance": "Highly Scrubbable & Moisture Resistant"
+  },
+  {
+    "id": "apt_metallo_fuso",
+    "name": "Royale Play Metallo Fuso",
+    "malayalam": "മെറ്റാലോ ഫ്യൂസോ",
+    "category": "textures",
+    "image": "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=800&q=80",
+    "desc": "Official Royale Play Metallo Fuso high-end metallic coating. Made with real metallic powders to recreate the heavy, luxurious look of molten liquid metal on feature walls.",
+    "rooms": "Foyer Highlights, Pillars, Commercial Accents",
+    "finish": "Molten Liquid Metal Lustre Finish",
+    "maintenance": "Delicate damp wipe only"
+  },
+  {
+    "id": "aps_trellis",
+    "name": "Wall Fashion Moroccan Trellis Stencil",
+    "malayalam": "മൊറോക്കൻ ട്രെല്ലിസ്",
+    "category": "patterns",
+    "image": "https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=800&q=80",
+    "desc": "Official Wall Fashion repeating geometric stencil. An interlocking Moroccan arch lattice pattern overlay. Elevates standard walls into Mediterranean style luxury statement screens.",
+    "rooms": "Dining Room Walls, Entry Foyer, Long Corridors",
+    "finish": "Royale Glitz Metallic over Matte Base",
+    "maintenance": "Wipe with damp cloth"
+  },
+  {
+    "id": "aps_lotus",
+    "name": "Wall Fashion Lotus Medallion Stencil",
+    "malayalam": "താമര മെഡാലിയൻ",
+    "category": "patterns",
+    "image": "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&q=80",
+    "desc": "Official Wall Fashion circular medallion stencil. A beautifully symmetrical lotus mandala motif. Adds spiritual calm, traditional warmth, and classic auspicious focus points.",
+    "rooms": "Pooja Room Walls, Ceiling Centers, Main Foyer",
+    "finish": "Brass Gold Stencil Print on Matte Base",
+    "maintenance": "Wipe clean with soft micro-fiber cloth"
+  },
+  {
+    "id": "aps_fern",
+    "name": "Wall Fashion Fern Canopy Stencil",
+    "malayalam": "ഫേൺ കാനോപി",
+    "category": "patterns",
+    "image": "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&q=80",
+    "desc": "Official nature-inspired repeating leaf stencil. Overlapping banana leaves and tropical palm fronds that instantly recreate a fresh garden resort breeze in Kerala homes.",
+    "rooms": "Balcony Sitouts, Dining Halls, Staircase Walls",
+    "finish": "Multi-shade Matte Acrylic Print",
+    "maintenance": "100% Washable & Scrubbable"
+  },
+  {
+    "id": "aps_chevron",
+    "name": "Wall Fashion Chevron Geometry Stencil",
+    "malayalam": "ഷെവ്റോൺ വരകൾ",
+    "category": "patterns",
+    "image": "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?w=800&q=80",
+    "desc": "Official contemporary geometric repeating stencil. Sharp, high-contrast repeating zig-zag stripes designed to build architectural scale and structural height.",
+    "rooms": "Kids Bedrooms, Home Theaters, Accent Boarders",
+    "finish": "Gloss Highlight Pattern on Matte Emulsion",
+    "maintenance": "Highly Scrubbable & Stain Resistant"
+  },
+  {
+    "id": "aps_waves",
+    "name": "Wall Fashion Rising Waves Stencil",
+    "malayalam": "ആർട്ട് ഡെക്കോ വേവ്സ്",
+    "category": "patterns",
+    "image": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=800&q=80",
+    "desc": "Official Art Deco sunburst border stencil. Represents rising metallic wave arcs in repeating columns. Offers an elegant, glamorous, and luxury-retro backdrop.",
+    "rooms": "Bed Headboards, Console Backgrounds, Lounges",
+    "finish": "Copper-gold Metallic Stencil Print",
+    "maintenance": "Wipe with damp cloth only"
+  },
+  {
+    "id": "aps_bamboo",
+    "name": "Wall Fashion Bamboo Stalks Stencil",
+    "malayalam": "മുള സ്റ്റെൻസിൽ",
+    "category": "patterns",
+    "image": "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=800&q=80",
+    "desc": "Official nature leaf stencil. Tall, slender vertical bamboo poles with fluttering leaves. Introduces calming organic structure and fluid heights to narrow wall faces.",
+    "rooms": "Staircase Corridors, Balconies, Sit-outs",
+    "finish": "Dual-tone Matte Green Acrylic Print",
+    "maintenance": "Washable & Low Maintenance"
+  },
+  {
+    "id": "aps_blossoms",
+    "name": "Wall Fashion Buds & Blossoms Stencil",
+    "malayalam": "പൂമൊട്ട് സ്റ്റെൻസിൽ",
+    "category": "patterns",
+    "image": "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=800&q=80",
+    "desc": "Official delicate border stencil design. Intricate running flower vine patterns stenciled carefully to frame doors, windows, and ceiling borders.",
+    "rooms": "Bed borders, Pooja Entrances, Arch Frames",
+    "finish": "Soft Off-white Silken Sheen Over Matte",
+    "maintenance": "Standard Washable"
+  },
+  {
+    "id": "aps_damask",
+    "name": "Wall Fashion Damask Tapestry Stencil",
+    "malayalam": "ഡമാസ്ക് പാറ്റേൺ",
+    "category": "patterns",
+    "image": "https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?w=800&q=80",
+    "desc": "Official royal damask brocade wallpaper style stencil. Intricate repeating heritage design motifs that turn flat walls into regal upholstered-feel tapestries.",
+    "rooms": "Formal Living Rooms, Guest Lounges, Master Suites",
+    "finish": "Gloss Varnish Pattern on Luxury Emulsion",
+    "maintenance": "Highly Washable & Scrubbable"
+  }
+]
