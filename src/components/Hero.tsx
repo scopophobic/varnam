@@ -6,10 +6,7 @@ import Image from 'next/image'
 import FloralOrnament from './FloralOrnament'
 
 const heroImages = [
-  { src: 'https://res.cloudinary.com/drzdylixy/image/upload/q_auto,f_auto,w_1200/v1782220018/varnam-carousel/kkmmpzahqgmpxymoodse.jpg', alt: 'Premium Painting Work by Varnam' },
-  { src: 'https://res.cloudinary.com/drzdylixy/image/upload/q_auto,f_auto,w_1200/v1782220019/varnam-carousel/xmpvtvv4qydonjbt6nk9.jpg', alt: 'Elegant Wall Finish' },
   { src: 'https://res.cloudinary.com/drzdylixy/image/upload/q_auto,f_auto,w_1200/v1782220021/varnam-carousel/b271ruodvegyssx4q44o.jpg', alt: 'Kerala Home Painting' },
-  { src: 'https://res.cloudinary.com/drzdylixy/image/upload/q_auto,f_auto,w_1200/v1782220022/varnam-carousel/x1l5mf2kazj6nzlqnzlr.jpg', alt: 'Modern Living Room Accents' },
   { src: 'https://res.cloudinary.com/drzdylixy/image/upload/q_auto,f_auto,w_1200/v1782220023/varnam-carousel/w8l0w6zitv0ca7lob48n.jpg', alt: 'Authorized Asian Paints Partner Finish' },
   { src: 'https://res.cloudinary.com/drzdylixy/image/upload/q_auto,f_auto,w_1200/v1782220024/varnam-carousel/w9htsypa7tzyk4adacdi.jpg', alt: 'Premium Exterior Coating' },
   { src: 'https://res.cloudinary.com/drzdylixy/image/upload/q_auto,f_auto,w_1200/v1782220025/varnam-carousel/kuhaq2sabc4vlupg82sc.jpg', alt: 'Luxury Design Finish' },

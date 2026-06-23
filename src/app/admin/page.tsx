@@ -73,8 +73,20 @@ export default function AdminDashboard() {
   }
 
   const handleDeleteGallery = async (id: string) => {
-    const res = await fetch(`/api/gallery/${id}`, { method: 'DELETE' })
-    if (res.ok) setGalleryItems((prev) => prev.filter((i) => i.id !== id))
+    try {
+      const res = await fetch(`/api/gallery/${id}`, { method: 'DELETE' })
+      if (res.ok) {
+        setGalleryItems((prev) => prev.filter((i) => i.id !== id))
+      } else {
+        const data = await res.json().catch(() => ({}))
+        const errMsg = data.error || `Server returned ${res.status}: ${res.statusText}`
+        console.error('Failed to delete image:', errMsg)
+        alert(`Failed to delete image: ${errMsg}`)
+      }
+    } catch (err) {
+      console.error('Error deleting image:', err)
+      alert(`Network error occurred while deleting image: ${err instanceof Error ? err.message : String(err)}`)
+    }
   }
 
   const handleFileUpload = async (file: File) => {

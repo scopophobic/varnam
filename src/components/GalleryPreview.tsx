@@ -16,7 +16,7 @@ interface DbImage {
 }
 
 export default function GalleryPreview() {
-  const [previewImages, setPreviewImages] = useState(galleryData.slice(0, 4))
+  const [previewImages, setPreviewImages] = useState(galleryData.slice(0, 8))
 
   useEffect(() => {
     fetch('/api/gallery')
@@ -26,7 +26,7 @@ export default function GalleryPreview() {
           const mapped = dbItems.map((i) => ({
             url: i.url, title: i.title, category: i.category, location: i.location,
           }))
-          setPreviewImages([...mapped, ...galleryData].slice(0, 4))
+          setPreviewImages([...mapped, ...galleryData].slice(0, 8))
         }
       })
       .catch(() => {})
@@ -47,7 +47,7 @@ export default function GalleryPreview() {
           </div>
         </Reveal>
 
-        <div className="mt-14 grid grid-cols-2 gap-3 sm:gap-6">
+        <div className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-6">
           {previewImages.map((image, index) => (
             <motion.div
               key={`${image.url}-${index}`}
