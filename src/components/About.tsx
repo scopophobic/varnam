@@ -118,6 +118,29 @@ export default function About() {
             </p>
           </Reveal>
 
+          <Reveal y={20} delay={0.42}>
+            <div className="mt-6 flex flex-col sm:flex-row sm:items-center gap-4">
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-stone-400">
+                  Official Partner
+                </p>
+                <div className="mt-1.5 relative h-12 w-40 overflow-hidden rounded-xl border border-border shadow-sm bg-white p-1">
+                  <Image
+                    src="/asian-paints-partner.jpg"
+                    alt="Authorized Asian Paints Painting Contractor"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+              </div>
+              <div className="max-w-xs">
+                <p className="text-xs text-charcoal/80 leading-relaxed mt-2 sm:mt-5">
+                  Proudly serving as an authorized <strong className="text-teal font-bold">Asian Paints Home Painting Services</strong> partner.
+                </p>
+              </div>
+            </div>
+          </Reveal>
+
           <Reveal y={20} delay={0.45}>
             <div className="mt-8 grid grid-cols-3 gap-4 border-t border-border pt-8 sm:gap-6">
               {[

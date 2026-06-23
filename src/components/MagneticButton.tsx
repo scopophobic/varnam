@@ -9,6 +9,8 @@ interface MagneticButtonProps {
   onClick?: () => void
   className?: string
   type?: 'submit' | 'button'
+  target?: string
+  rel?: string
 }
 
 export default function MagneticButton({
@@ -17,6 +19,8 @@ export default function MagneticButton({
   onClick,
   className = '',
   type,
+  target,
+  rel,
 }: MagneticButtonProps) {
   const ref = useRef<HTMLDivElement>(null)
   const [position, setPosition] = useState({ x: 0, y: 0 })
@@ -45,7 +49,7 @@ export default function MagneticButton({
   )
 
   if (href) {
-    return <a href={href}>{content}</a>
+    return <a href={href} target={target} rel={rel}>{content}</a>
   }
 
   if (type === 'submit') {

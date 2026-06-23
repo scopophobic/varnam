@@ -6,10 +6,14 @@ import Image from 'next/image'
 import FloralOrnament from './FloralOrnament'
 
 const heroImages = [
-  { src: 'https://res.cloudinary.com/drzdylixy/image/upload/q_auto,f_auto,w_1200/v1781374258/varnam-carousel/ldvfvittpxupf1gobfa8.jpg', alt: 'Painting work' },
-  { src: 'https://res.cloudinary.com/drzdylixy/image/upload/q_auto,f_auto,w_1200/v1781374260/varnam-carousel/vbotqreexplqeyjkycgs.jpg', alt: 'Interior painting' },
-  { src: 'https://res.cloudinary.com/drzdylixy/image/upload/q_auto,f_auto,w_1200/v1781374261/varnam-carousel/uromazzlquad1thv1eym.jpg', alt: 'Design finish' },
-  { src: 'https://res.cloudinary.com/drzdylixy/image/upload/q_auto,f_auto,w_1200/v1781374263/varnam-carousel/kfr1mdofqs6dhpbsjqzw.jpg', alt: 'Living space' },
+  { src: '/images/carousel/carousel-1.jpeg', alt: 'Premium Painting Work by Varnam' },
+  { src: '/images/carousel/carousel-2.jpeg', alt: 'Elegant Wall Finish' },
+  { src: '/images/carousel/carousel-3.jpeg', alt: 'Kerala Home Painting' },
+  { src: '/images/carousel/carousel-4.jpeg', alt: 'Modern Living Room Accents' },
+  { src: '/images/carousel/carousel-5.jpeg', alt: 'Authorized Asian Paints Partner Finish' },
+  { src: '/images/carousel/carousel-6.jpeg', alt: 'Premium Exterior Coating' },
+  { src: '/images/carousel/carousel-7.jpeg', alt: 'Luxury Design Finish' },
+  { src: '/images/carousel/carousel-8.jpeg', alt: 'Varnam Painting and Designs' },
 ]
 
 const whatsappMsg = encodeURIComponent(
@@ -98,13 +102,32 @@ export default function Hero() {
 
         <div className="order-2 lg:order-1 flex flex-col justify-center px-5 pb-8 pt-1 lg:px-0 lg:py-0">
           <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="mb-5 flex items-center gap-3"
+          >
+            <div className="relative h-9 w-28 overflow-hidden rounded-lg border border-border/70 bg-white p-1 shadow-sm shrink-0">
+              <Image
+                src="/asian-paints-partner.jpg"
+                alt="Authorized Asian Paints Painting Contractor"
+                fill
+                className="object-contain"
+              />
+            </div>
+            <span className="text-[9px] font-bold uppercase tracking-[0.15em] text-stone-500">
+              Authorized Partner
+            </span>
+          </motion.div>
+
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             className=""
           >
             <h1 className="font-serif text-5xl leading-[1.08] tracking-tight text-charcoal md:text-7xl lg:text-8xl">
-              <span>Varnam</span>
+              <span className="bg-gradient-to-r from-teal via-gold to-terracotta bg-clip-text text-transparent text-gradient-shift">Varnam</span>
               <br />
               <span>Painting</span>
               <br />
@@ -147,7 +170,7 @@ export default function Hero() {
               <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/10 to-transparent transition-transform duration-500 group-hover:translate-x-0" />
             </a>
             <a
-              href="/#services"
+              href="#services"
               className="group relative overflow-hidden border border-border bg-transparent px-6 py-3 text-xs uppercase tracking-[0.2em] text-charcoal transition-all duration-300 hover:border-charcoal sm:px-8 sm:py-3.5"
             >
               <span className="relative z-10">Our Services</span>

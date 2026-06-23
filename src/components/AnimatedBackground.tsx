@@ -12,7 +12,6 @@ export default function AnimatedBackground() {
 
     const noise3D = createNoise3D()
     const TAU = Math.PI * 2
-    const PI = Math.PI
 
     const canvasA = document.createElement('canvas')
     const canvasB = document.createElement('canvas')
@@ -44,7 +43,6 @@ export default function AnimatedBackground() {
     const circleProps = new Float32Array(circlePropsLength)
 
     const rand = (n: number) => Math.random() * n
-    const randRange = (min: number, max: number) => min + Math.random() * (max - min)
 
     function fadeInOut(t: number, m: number) {
       const hm = m * 0.5

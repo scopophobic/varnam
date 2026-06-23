@@ -1,7 +1,8 @@
 'use client'
 
-import { useEffect, useState, useCallback } from 'react'
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
+import Image from 'next/image'
 
 interface Message {
   id: string
@@ -41,21 +42,30 @@ export default function AdminDashboard() {
     })
   }, [router])
 
-  const loadMessages = useCallback(async () => {
-    const res = await fetch('/api/messages')
-    if (res.ok) setMessages(await res.json())
-  }, [])
-
-  const loadGallery = useCallback(async () => {
-    const res = await fetch('/api/gallery')
-    if (res.ok) setGalleryItems(await res.json())
-  }, [])
-
   useEffect(() => {
     if (!authenticated) return
-    loadMessages()
-    loadGallery()
-  }, [authenticated, loadMessages, loadGallery])
+    let active = true
+    const fetchData = async () => {
+      try {
+        const resMsg = await fetch('/api/messages')
+        if (resMsg.ok && active) {
+          const data = await resMsg.json()
+          setMessages(data)
+        }
+        const resGal = await fetch('/api/gallery')
+        if (resGal.ok && active) {
+          const data = await resGal.json()
+          setGalleryItems(data)
+        }
+      } catch (err) {
+        console.error('Error fetching admin data:', err)
+      }
+    }
+    fetchData()
+    return () => {
+      active = false
+    }
+  }, [authenticated])
 
   const handleDeleteMessage = async (id: string) => {
     const res = await fetch(`/api/messages/${id}`, { method: 'DELETE' })
@@ -297,12 +307,14 @@ export default function AdminDashboard() {
               {galleryItems.map((item) => (
                 <div
                   key={item.id}
-                  className="group relative overflow-hidden border border-border"
+                  className="group relative overflow-hidden border border-border aspect-[4/3]"
                 >
-                  <img
+                  <Image
                     src={item.url}
                     alt={item.title}
-                    className="aspect-[4/3] w-full object-cover transition-all duration-500 group-hover:scale-105"
+                    fill
+                    className="object-cover transition-all duration-500 group-hover:scale-105"
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                   />
                   <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-charcoal/70 via-transparent to-transparent p-4 opacity-0 transition-opacity group-hover:opacity-100">
                     <p className="font-serif text-sm text-white">

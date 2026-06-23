@@ -66,14 +66,20 @@ export default function GalleryPreview() {
                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 25vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/20 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                <div className="absolute bottom-0 left-0 right-0 p-3 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 sm:p-5">
-                  <h3 className="font-serif text-xs text-white sm:text-base">
-                    {image.title}
-                  </h3>
-                  <p className="mt-0.5 text-[9px] font-bold uppercase tracking-[0.15em] text-gold-light sm:text-xs">
-                    {image.category}
-                  </p>
-                </div>
+                {(image.title || image.category) && (
+                  <div className="absolute bottom-0 left-0 right-0 p-3 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 sm:p-5">
+                    {image.title && (
+                      <h3 className="font-serif text-xs text-white sm:text-base">
+                        {image.title}
+                      </h3>
+                    )}
+                    {image.category && (
+                      <p className="mt-0.5 text-[9px] font-bold uppercase tracking-[0.15em] text-gold-light sm:text-xs">
+                        {image.category}
+                      </p>
+                    )}
+                  </div>
+                )}
               </div>
             </motion.div>
           ))}

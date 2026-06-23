@@ -1,6 +1,5 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import MagneticButton from './MagneticButton'
 import Reveal from './Reveal'
 
@@ -28,9 +27,13 @@ export default function QuoteBanner() {
                 Contact Us
               </span>
             </MagneticButton>
-            <MagneticButton href="tel:+919526100862">
-              <span className="block rounded-full border-2 border-white/40 bg-white/10 px-8 py-3.5 text-xs font-bold uppercase tracking-[0.15em] text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/20 hover:scale-105 sm:px-10 sm:py-4">
-                +91 9526100862
+            <MagneticButton
+              href="https://wa.me/919526100862?text=Hello%20Varnam%20Painting!%20I'd%20like%20to%20get%20a%20free%20quote%20for%20my%20painting%20and%20design%20project."
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className="block rounded-full border-2 border-emerald-500 bg-emerald-600/90 px-8 py-3.5 text-xs font-bold uppercase tracking-[0.15em] text-white shadow-lg transition-all duration-300 hover:bg-emerald-600 hover:scale-105 sm:px-10 sm:py-4">
+                Chat on WhatsApp
               </span>
             </MagneticButton>
           </div>

@@ -19,10 +19,6 @@ export default function Navbar() {
   const pathname = usePathname()
 
   useEffect(() => {
-    setMobileOpen(false)
-  }, [pathname])
-
-  useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40)
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
@@ -43,9 +39,9 @@ export default function Navbar() {
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3.5 lg:px-10 lg:py-4">
-        <Link href="/" className="flex flex-col">
-          <span className="font-serif text-base tracking-[0.15em] text-charcoal transition-colors hover:text-gold lg:text-xl">
-            Varnam
+        <Link href="/" onClick={() => setMobileOpen(false)} className="flex flex-col">
+          <span className="font-serif text-base tracking-[0.15em] text-charcoal transition-colors lg:text-xl">
+            <span className="bg-gradient-to-r from-teal via-gold to-terracotta bg-clip-text text-transparent text-gradient-shift">Varnam</span>
             <span className="text-gold">.</span>
           </span>
           <span className="-mt-0.5 text-[9px] uppercase tracking-[0.3em] text-stone-400 mlm lg:text-[10px]">
