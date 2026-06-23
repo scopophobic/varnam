@@ -165,10 +165,12 @@ export default function Footer() {
           <p className="text-xs text-cream/30">
             Site developed & maintained by{' '}
             <a
-              href="#"
-              className="link-underline text-cream/40 transition-colors hover:text-cream/60"
+              href="https://scopophobic.xyz"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="link-underline text-cream/45 hover:text-gold transition-colors font-medium"
             >
-              Adithyan Info Solution
+              Adithyan Madhu
             </a>
           </p>
         </div>

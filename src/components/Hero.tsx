@@ -6,14 +6,14 @@ import Image from 'next/image'
 import FloralOrnament from './FloralOrnament'
 
 const heroImages = [
-  { src: '/images/carousel/carousel-1.jpeg', alt: 'Premium Painting Work by Varnam' },
-  { src: '/images/carousel/carousel-2.jpeg', alt: 'Elegant Wall Finish' },
-  { src: '/images/carousel/carousel-3.jpeg', alt: 'Kerala Home Painting' },
-  { src: '/images/carousel/carousel-4.jpeg', alt: 'Modern Living Room Accents' },
-  { src: '/images/carousel/carousel-5.jpeg', alt: 'Authorized Asian Paints Partner Finish' },
-  { src: '/images/carousel/carousel-6.jpeg', alt: 'Premium Exterior Coating' },
-  { src: '/images/carousel/carousel-7.jpeg', alt: 'Luxury Design Finish' },
-  { src: '/images/carousel/carousel-8.jpeg', alt: 'Varnam Painting and Designs' },
+  { src: 'https://res.cloudinary.com/drzdylixy/image/upload/q_auto,f_auto,w_1200/v1782220018/varnam-carousel/kkmmpzahqgmpxymoodse.jpg', alt: 'Premium Painting Work by Varnam' },
+  { src: 'https://res.cloudinary.com/drzdylixy/image/upload/q_auto,f_auto,w_1200/v1782220019/varnam-carousel/xmpvtvv4qydonjbt6nk9.jpg', alt: 'Elegant Wall Finish' },
+  { src: 'https://res.cloudinary.com/drzdylixy/image/upload/q_auto,f_auto,w_1200/v1782220021/varnam-carousel/b271ruodvegyssx4q44o.jpg', alt: 'Kerala Home Painting' },
+  { src: 'https://res.cloudinary.com/drzdylixy/image/upload/q_auto,f_auto,w_1200/v1782220022/varnam-carousel/x1l5mf2kazj6nzlqnzlr.jpg', alt: 'Modern Living Room Accents' },
+  { src: 'https://res.cloudinary.com/drzdylixy/image/upload/q_auto,f_auto,w_1200/v1782220023/varnam-carousel/w8l0w6zitv0ca7lob48n.jpg', alt: 'Authorized Asian Paints Partner Finish' },
+  { src: 'https://res.cloudinary.com/drzdylixy/image/upload/q_auto,f_auto,w_1200/v1782220024/varnam-carousel/w9htsypa7tzyk4adacdi.jpg', alt: 'Premium Exterior Coating' },
+  { src: 'https://res.cloudinary.com/drzdylixy/image/upload/q_auto,f_auto,w_1200/v1782220025/varnam-carousel/kuhaq2sabc4vlupg82sc.jpg', alt: 'Luxury Design Finish' },
+  { src: 'https://res.cloudinary.com/drzdylixy/image/upload/q_auto,f_auto,w_1200/v1782220026/varnam-carousel/zwir244nfdkpim50fgn1.jpg', alt: 'Varnam Painting and Designs' },
 ]
 
 const whatsappMsg = encodeURIComponent(
@@ -60,10 +60,10 @@ export default function Hero() {
       <FloralOrnament className="absolute top-20 left-6 h-16 w-16 text-gold/20 lg:left-10" />
       <FloralOrnament className="absolute bottom-20 right-6 h-20 w-20 rotate-45 text-teal/15 lg:right-10" />
 
-      <div className="relative z-10 mx-auto grid min-h-screen max-w-7xl grid-cols-1 items-start gap-0 lg:min-h-0 lg:grid-cols-2 lg:items-center lg:gap-16 lg:px-10">
+      <div className="relative z-10 grid min-h-screen grid-cols-1 items-start gap-0 lg:min-h-screen lg:grid-cols-2 lg:items-center lg:gap-0">
         <motion.div
           style={{ y: imgY, opacity }}
-          className="order-1 lg:order-2 relative h-[38vh] w-full overflow-hidden lg:h-screen lg:min-h-screen"
+          className="order-1 lg:order-2 relative w-full h-[33vh] lg:h-[50vh] xl:h-[56vh] overflow-hidden rounded-none lg:rounded-l-[2.5rem] shadow-none lg:shadow-[0_20px_50px_rgba(0,0,0,0.15)] border-none lg:border-t lg:border-b lg:border-l lg:border-white/60 mt-0"
         >
           <AnimatePresence mode="sync">
             <motion.div
@@ -85,22 +85,23 @@ export default function Hero() {
             </motion.div>
           </AnimatePresence>
 
-          <div className="absolute inset-0 bg-gradient-to-b from-cream/15 via-transparent to-cream/15 lg:bg-gradient-to-r lg:from-cream/20 lg:via-transparent lg:to-transparent" />
+          {/* Bottom shadow gradient overlay for indicators */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
 
-          <div className="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 gap-2">
+          <div className="absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 gap-2">
             {heroImages.map((_, i) => (
               <button
                 key={i}
                 onClick={() => setCurrentIndex(i)}
                 className={`h-1.5 rounded-full transition-all duration-300 ${
-                  i === currentIndex ? 'w-6 bg-cream' : 'w-1.5 bg-cream/50'
+                  i === currentIndex ? 'w-6 bg-white' : 'w-1.5 bg-white/50'
                 }`}
               />
             ))}
           </div>
         </motion.div>
 
-        <div className="order-2 lg:order-1 flex flex-col justify-center px-5 pb-8 pt-1 lg:px-0 lg:py-0">
+        <div className="order-2 lg:order-1 flex flex-col justify-center px-5 pb-8 pt-8 lg:py-0 lg:pl-10 xl:pl-[calc((100vw-1280px)/2+40px)] lg:pr-12 xl:pr-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
