@@ -63,7 +63,7 @@ export default function Hero() {
       <div className="relative z-10 grid min-h-screen grid-cols-1 items-start gap-0 lg:min-h-screen lg:grid-cols-2 lg:items-center lg:gap-0">
         <motion.div
           style={{ y: imgY, opacity }}
-          className="order-1 lg:order-2 relative w-full h-[33vh] lg:h-[50vh] xl:h-[56vh] overflow-hidden rounded-none lg:rounded-l-[2.5rem] shadow-none lg:shadow-[0_20px_50px_rgba(0,0,0,0.15)] border-none lg:border-t lg:border-b lg:border-l lg:border-white/60 mt-0"
+          className="order-1 lg:order-2 relative w-full h-[33vh] lg:h-[50vh] xl:h-[56vh] overflow-hidden rounded-none lg:rounded-l-[2.5rem] shadow-none lg:shadow-[0_20px_50px_rgba(0,0,0,0.15)] border-none lg:border-t lg:border-b lg:border-l lg:border-white/60 mt-16 lg:mt-0"
         >
           <AnimatePresence mode="sync">
             <motion.div
