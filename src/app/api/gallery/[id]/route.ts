@@ -37,29 +37,37 @@ export async function DELETE(
   _req: Request,
   { params }: { params: Promise<{ id: string }> },
 ) {
-  const token = await getTokenFromCookies()
-  if (!token || !verifyToken(token)) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
-  }
-
-  const { id } = await params
-  const items = getGalleryItems()
-  const item = items.find((i) => i.id === id)
-
-  if (!item) {
-    return NextResponse.json({ error: 'Not found' }, { status: 404 })
-  }
-
   try {
-    const publicId = getPublicIdFromUrl(item.url)
-    if (publicId) {
-      console.log(`Deleting Cloudinary asset: ${publicId}`)
-      await deleteImage(publicId)
+    const token = await getTokenFromCookies()
+    if (!token || !verifyToken(token)) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
-  } catch (err) {
-    console.error('Error deleting image from Cloudinary:', err)
-  }
 
-  deleteGalleryItem(id)
-  return NextResponse.json({ success: true })
+    const { id } = await params
+    const items = getGalleryItems()
+    const item = items.find((i) => i.id === id)
+
+    if (!item) {
+      return NextResponse.json({ error: 'Not found' }, { status: 404 })
+    }
+
+    try {
+      const publicId = getPublicIdFromUrl(item.url)
+      if (publicId) {
+        console.log(`Deleting Cloudinary asset: ${publicId}`)
+        await deleteImage(publicId)
+      }
+    } catch (err) {
+      console.error('Error deleting image from Cloudinary:', err)
+    }
+
+    deleteGalleryItem(id)
+    return NextResponse.json({ success: true })
+  } catch (err) {
+    console.error('CRITICAL: Error in DELETE /api/gallery/[id]:', err)
+    return NextResponse.json(
+      { error: err instanceof Error ? err.message : String(err) },
+      { status: 500 },
+    )
+  }
 }
