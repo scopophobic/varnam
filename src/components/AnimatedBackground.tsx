@@ -12,14 +12,14 @@ export default function AnimatedBackground() {
 
     const noise3D = createNoise3D()
     const TAU = Math.PI * 2
-    const scale = 0.125 // Scale down to 1/8th resolution for extreme performance
+    const scale = 0.25 // Scale to 1/4th resolution for excellent balance of ball definition & performance
 
     const canvas = document.createElement('canvas')
     
     // Position fixed, sized slightly larger (110%) to push blurred edges off-screen,
-    // and apply hardware-accelerated CSS blur (compositor thread)
+    // and apply a soft blur (18px) to keep the floating balls defined and gorgeous
     canvas.style.cssText =
-      'position:absolute;width:110%;height:110%;top:-5%;left:-5%;filter:blur(40px);transform:translate3d(0,0,0);backface-visibility:hidden;pointer-events:none;'
+      'position:absolute;width:110%;height:110%;top:-5%;left:-5%;filter:blur(18px);transform:translate3d(0,0,0);backface-visibility:hidden;pointer-events:none;'
 
     container.appendChild(canvas)
 
