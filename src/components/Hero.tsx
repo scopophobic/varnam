@@ -8,7 +8,7 @@ import FloralOrnament from './FloralOrnament'
 const heroImages = [
   { src: 'https://res.cloudinary.com/drzdylixy/image/upload/q_auto,f_auto,w_1200/v1782220021/varnam-carousel/b271ruodvegyssx4q44o.jpg', alt: 'Kerala Home Painting' },
   { src: 'https://res.cloudinary.com/drzdylixy/image/upload/q_auto,f_auto,w_1200/v1782220023/varnam-carousel/w8l0w6zitv0ca7lob48n.jpg', alt: 'Authorized Asian Paints Partner Finish' },
-  { src: 'https://res.cloudinary.com/drzdylixy/image/upload/q_auto,f_auto,w_1200/v1782220024/varnam-carousel/w9htsypa7tzyk4adacdi.jpg', alt: 'Premium Exterior Coating' },
+  { src: 'https://res.cloudinary.com/drzdylixy/image/upload/q_auto,f_auto,w_1200/v1782241036/varnam-carousel/ln5qjwyjj9jejdb6neth.jpg', alt: 'Varnam Premium Painting Work' },
   { src: 'https://res.cloudinary.com/drzdylixy/image/upload/q_auto,f_auto,w_1200/v1782220025/varnam-carousel/kuhaq2sabc4vlupg82sc.jpg', alt: 'Luxury Design Finish' },
   { src: 'https://res.cloudinary.com/drzdylixy/image/upload/q_auto,f_auto,w_1200/v1782220026/varnam-carousel/zwir244nfdkpim50fgn1.jpg', alt: 'Varnam Painting and Designs' },
 ]
