@@ -48,7 +48,7 @@ export default function ContactPreview() {
         </Reveal>
 
         <Reveal y={20} delay={0.3}>
-          <div className="mx-auto mt-8 flex flex-wrap items-center justify-center gap-6 text-xs text-charcoal/60">
+          <div className="mx-auto mt-8 flex flex-wrap items-center justify-center gap-6 text-xs text-charcoal/80">
             <a href="tel:+919656200862" className="link-underline">
               +91 9656200862
             </a>

@@ -12,30 +12,34 @@ export default function AnimatedBackground() {
 
     const noise3D = createNoise3D()
     const TAU = Math.PI * 2
+    const scale = 0.125 // Scale down to 1/8th resolution for extreme performance
 
-    const canvasA = document.createElement('canvas')
-    const canvasB = document.createElement('canvas')
+    const canvas = document.createElement('canvas')
+    
+    // Position fixed, sized slightly larger (110%) to push blurred edges off-screen,
+    // and apply hardware-accelerated CSS blur (compositor thread)
+    canvas.style.cssText =
+      'position:absolute;width:110%;height:110%;top:-5%;left:-5%;filter:blur(40px);transform:translate3d(0,0,0);backface-visibility:hidden;pointer-events:none;'
 
-    canvasB.style.cssText =
-      'width:100%;height:100%;pointer-events:none;'
+    container.appendChild(canvas)
 
-    container.appendChild(canvasB)
-
-    const ctxA = canvasA.getContext('2d')!
-    const ctxB = canvasB.getContext('2d')!
+    // Using non-alpha context for faster fills
+    const ctx = canvas.getContext('2d', { alpha: false })!
 
     const circleCount = 180
     const circlePropCount = 8
     const circlePropsLength = circleCount * circlePropCount
-    const baseSpeed = 0.1
-    const rangeSpeed = 1
+    
+    // Scale speed, radii, and noise offsets by the scale factor
+    const baseSpeed = 0.1 * scale
+    const rangeSpeed = 1 * scale
     const baseTTL = 150
     const rangeTTL = 200
-    const baseRadius = 120
-    const rangeRadius = 220
+    const baseRadius = 120 * scale
+    const rangeRadius = 220 * scale
     const rangeHue = 360
-    const xOff = 0.0015
-    const yOff = 0.0015
+    const xOff = 0.0015 / scale
+    const yOff = 0.0015 / scale
     const zOff = 0.0015
     const backgroundColor = 'hsla(0,0%,3%,1)'
     let baseHue = 0
@@ -50,8 +54,8 @@ export default function AnimatedBackground() {
     }
 
     function initCircle(i: number) {
-      const x = rand(canvasA.width)
-      const y = rand(canvasA.height)
+      const x = rand(canvas.width)
+      const y = rand(canvas.height)
       const n = noise3D(x * xOff, y * yOff, baseHue * zOff)
       const t = rand(TAU)
       const speed = baseSpeed + rand(rangeSpeed)
@@ -71,20 +75,20 @@ export default function AnimatedBackground() {
     }
 
     function drawCircle(x: number, y: number, life: number, ttl: number, radius: number, hue: number) {
-      ctxA.save()
-      ctxA.fillStyle = `hsla(${hue},100%,60%,${fadeInOut(life, ttl)})`
-      ctxA.beginPath()
-      ctxA.arc(x, y, radius, 0, TAU)
-      ctxA.fill()
-      ctxA.restore()
+      ctx.save()
+      ctx.fillStyle = `hsla(${hue},100%,60%,${fadeInOut(life, ttl)})`
+      ctx.beginPath()
+      ctx.arc(x, y, radius, 0, TAU)
+      ctx.fill()
+      ctx.restore()
     }
 
     function checkBounds(x: number, y: number, radius: number) {
       return (
         x < -radius ||
-        x > canvasA.width + radius ||
+        x > canvas.width + radius ||
         y < -radius ||
-        y > canvasA.height + radius
+        y > canvas.height + radius
       )
     }
 
@@ -116,36 +120,23 @@ export default function AnimatedBackground() {
       }
     }
 
-    function renderCanvas() {
-      ctxB.save()
-      ctxB.filter = 'blur(50px)'
-      ctxB.drawImage(canvasA, 0, 0)
-      ctxB.restore()
-    }
-
     let animationId: number
 
     function draw() {
-      ctxA.clearRect(0, 0, canvasA.width, canvasA.height)
-      ctxB.fillStyle = backgroundColor
-      ctxB.fillRect(0, 0, canvasB.width, canvasB.height)
+      ctx.fillStyle = backgroundColor
+      ctx.fillRect(0, 0, canvas.width, canvas.height)
       updateCircles()
-      renderCanvas()
       animationId = requestAnimationFrame(draw)
     }
 
     function resize() {
       const { innerWidth, innerHeight } = window
-      canvasA.width = innerWidth
-      canvasA.height = innerHeight
-      ctxA.drawImage(canvasB, 0, 0)
-      canvasB.width = innerWidth
-      canvasB.height = innerHeight
-      ctxB.drawImage(canvasA, 0, 0)
+      canvas.width = innerWidth * scale
+      canvas.height = innerHeight * scale
+      initCircles()
     }
 
     resize()
-    initCircles()
     draw()
 
     window.addEventListener('resize', resize)
@@ -153,14 +144,14 @@ export default function AnimatedBackground() {
     return () => {
       cancelAnimationFrame(animationId)
       window.removeEventListener('resize', resize)
-      container.removeChild(canvasB)
+      container.removeChild(canvas)
     }
   }, [])
 
   return (
     <div
       ref={containerRef}
-      className="content--canvas fixed inset-0 z-0 bg-[#0d0a08]"
+      className="content--canvas fixed inset-0 z-0 bg-[#0d0a08] overflow-hidden"
       aria-hidden="true"
     />
   )

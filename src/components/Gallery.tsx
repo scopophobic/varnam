@@ -7,6 +7,7 @@ import Link from 'next/link'
 import galleryData from '@/lib/gallery-data'
 import type { GalleryImage } from '@/lib/gallery-data'
 import Reveal from './Reveal'
+import { cloudinaryLoader, getOptimizedCloudinaryUrl } from '@/lib/cloudinary-helper'
 
 interface DbImage {
   id: string
@@ -100,13 +101,14 @@ export default function Gallery() {
               className="group relative mb-4 cursor-pointer overflow-hidden break-inside-avoid sm:mb-6"
               onClick={() => setSelectedIndex(index)}
             >
-              <div className="relative overflow-hidden">
-                <Image
-                  src={image.url}
-                  alt={image.title}
-                  width={800}
-                  height={index % 3 === 0 ? 1000 : index % 3 === 1 ? 700 : 850}
-                  className="w-full object-cover transition-all duration-700 group-hover:scale-105"
+              <div className="relative overflow-hidden w-full">
+                <img
+                  src={getOptimizedCloudinaryUrl(image.url, 600)}
+                  srcSet={`${getOptimizedCloudinaryUrl(image.url, 400)} 400w, ${getOptimizedCloudinaryUrl(image.url, 600)} 600w, ${getOptimizedCloudinaryUrl(image.url, 800)} 800w`}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  alt={image.title || 'Varnam Painting and Designs Project'}
+                  loading="lazy"
+                  className="w-full h-auto object-cover transition-all duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-charcoal/70 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                 {(image.title || image.category) && (
@@ -158,7 +160,7 @@ export default function Gallery() {
                 e.stopPropagation()
                 setSelectedIndex(null)
               }}
-              className="absolute top-4 right-4 z-10 flex h-10 w-10 items-center justify-center text-cream/60 transition-colors hover:text-cream sm:top-6 sm:right-6"
+              className="absolute top-4 right-4 z-10 flex h-12 w-12 items-center justify-center text-cream/60 transition-colors hover:text-cream sm:top-6 sm:right-6"
               aria-label="Close lightbox"
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -171,7 +173,7 @@ export default function Gallery() {
                 e.stopPropagation()
                 handlePrev()
               }}
-              className="absolute left-3 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center text-cream/40 transition-colors hover:text-cream sm:left-6 sm:h-12 sm:w-12"
+              className="absolute left-3 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center text-cream/40 transition-colors hover:text-cream sm:left-6"
               aria-label="Previous image"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="sm:w-5 sm:h-5">
@@ -184,7 +186,7 @@ export default function Gallery() {
                 e.stopPropagation()
                 handleNext()
               }}
-              className="absolute right-3 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center text-cream/40 transition-colors hover:text-cream sm:right-6 sm:h-12 sm:w-12"
+              className="absolute right-3 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center text-cream/40 transition-colors hover:text-cream sm:right-6"
               aria-label="Next image"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="sm:w-5 sm:h-5">
@@ -202,6 +204,7 @@ export default function Gallery() {
               onClick={(e) => e.stopPropagation()}
             >
               <Image
+                loader={cloudinaryLoader}
                 src={selected.url}
                 alt={selected.title}
                 width={1200}

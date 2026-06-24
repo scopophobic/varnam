@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react'
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import FloralOrnament from './FloralOrnament'
+import { cloudinaryLoader, getOptimizedCloudinaryUrl } from '@/lib/cloudinary-helper'
 
 const heroImages = [
   { src: 'https://res.cloudinary.com/drzdylixy/image/upload/q_auto,f_auto,w_1200/v1782220021/varnam-carousel/b271ruodvegyssx4q44o.jpg', alt: 'Kerala Home Painting' },
@@ -38,7 +39,9 @@ export default function Hero() {
   useEffect(() => {
     const next = (currentIndex + 1) % heroImages.length
     const img = new window.Image()
-    img.src = heroImages[next].src
+    // Preload with width based on screen size for matching the responsive sizes attribute
+    const width = window.innerWidth > 1024 ? 1024 : 640
+    img.src = getOptimizedCloudinaryUrl(heroImages[next].src, width)
   }, [currentIndex])
 
   return (
@@ -72,6 +75,7 @@ export default function Hero() {
               className="absolute inset-0"
             >
               <Image
+                loader={cloudinaryLoader}
                 src={heroImages[currentIndex].src}
                 alt={heroImages[currentIndex].alt}
                 fill
@@ -85,15 +89,20 @@ export default function Hero() {
           {/* Bottom shadow gradient overlay for indicators */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
 
-          <div className="absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 gap-2">
+          <div className="absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 items-center gap-1">
             {heroImages.map((_, i) => (
               <button
                 key={i}
                 onClick={() => setCurrentIndex(i)}
-                className={`h-1.5 rounded-full transition-all duration-300 ${
-                  i === currentIndex ? 'w-6 bg-white' : 'w-1.5 bg-white/50'
-                }`}
-              />
+                aria-label={`Go to slide ${i + 1}`}
+                className="flex h-11 min-w-[28px] items-center justify-center px-1.5 cursor-pointer focus:outline-none"
+              >
+                <span
+                  className={`h-1.5 rounded-full transition-all duration-300 ${
+                    i === currentIndex ? 'w-6 bg-white' : 'w-1.5 bg-white/50'
+                  }`}
+                />
+              </button>
             ))}
           </div>
         </motion.div>

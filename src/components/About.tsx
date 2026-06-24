@@ -121,7 +121,7 @@ export default function About() {
           <Reveal y={20} delay={0.42}>
             <div className="mt-6 flex flex-col sm:flex-row sm:items-center gap-4">
               <div>
-                <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-stone-400">
+                <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-charcoal-600">
                   Official Partner
                 </p>
                 <div className="mt-1.5 relative h-12 w-40 overflow-hidden rounded-xl border border-border shadow-sm bg-white p-1">
@@ -152,7 +152,7 @@ export default function About() {
                   <span className={`font-serif text-2xl sm:text-3xl ${stat.color}`}>
                     <CountUp end={stat.end} suffix={stat.suffix} />
                   </span>
-                  <p className="mt-1 text-[10px] uppercase tracking-[0.15em] text-charcoal/65 sm:text-xs">
+                  <p className="mt-1 text-[10px] uppercase tracking-[0.15em] text-charcoal/80 sm:text-xs">
                     {stat.label}
                   </p>
                 </div>

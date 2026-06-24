@@ -11,7 +11,7 @@ export default function Footer() {
             <h3 className="font-serif text-lg tracking-wide text-white">
               Varnam<span className="text-gold">.</span>
             </h3>
-            <p className="mt-1 text-[9px] uppercase tracking-[0.3em] text-cream/40 mlm lg:text-[10px]">
+            <p className="mt-1 text-[9px] uppercase tracking-[0.3em] text-cream/60 mlm lg:text-[10px]">
               Painting and Designs
             </p>
             <p className="mt-4 text-sm leading-relaxed text-cream/65 max-w-md">
@@ -100,17 +100,17 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-cream/10 pt-7 md:flex-row lg:pt-8">
-          <p className="text-xs text-cream/40">
+          <p className="text-xs text-cream/60">
             &copy; {new Date().getFullYear()} Varnam Painting and Designs. All
             Rights Reserved.
           </p>
-          <p className="text-xs text-cream/30">
+          <p className="text-xs text-cream/60">
             Site developed & maintained by{' '}
             <a
               href="https://scopophobic.xyz"
               target="_blank"
               rel="noopener noreferrer"
-              className="link-underline text-cream/45 hover:text-gold transition-colors font-medium"
+              className="link-underline text-cream/65 hover:text-gold transition-colors font-medium"
             >
               Adithyan Madhu
             </a>

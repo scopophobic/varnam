@@ -44,7 +44,7 @@ export default function Navbar() {
             <span className="bg-gradient-to-r from-teal via-gold to-terracotta bg-clip-text text-transparent text-gradient-shift">Varnam</span>
             <span className="text-gold">.</span>
           </span>
-          <span className="-mt-0.5 text-[9px] uppercase tracking-[0.3em] text-stone-400 mlm lg:text-[10px]">
+          <span className="-mt-0.5 text-[9px] uppercase tracking-[0.3em] text-charcoal-600 mlm lg:text-[10px]">
             Painting and Designs
           </span>
         </Link>
@@ -72,7 +72,7 @@ export default function Navbar() {
 
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="z-50 flex h-9 w-9 shrink-0 items-center justify-center md:hidden"
+          className="z-50 flex h-11 w-11 shrink-0 items-center justify-center md:hidden"
           aria-label="Toggle menu"
         >
           <div className="flex w-[18px] flex-col items-center gap-[5px]">
@@ -127,23 +127,23 @@ export default function Navbar() {
             transition={{ delay: 0.3 }}
             className="absolute bottom-10 left-0 right-0 text-center"
           >
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-stone-400">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-charcoal-600">
               Follow Us
             </p>
             <div className="mt-3 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 px-6">
-              <a href="https://www.instagram.com/varnam_painting_and_designs/" target="_blank" rel="noopener noreferrer" className="text-xs text-charcoal/60 hover:text-gold font-bold uppercase tracking-[0.15em] whitespace-nowrap transition-colors">
+              <a href="https://www.instagram.com/varnam_painting_and_designs/" target="_blank" rel="noopener noreferrer" className="text-xs text-charcoal/80 hover:text-gold font-bold uppercase tracking-[0.15em] whitespace-nowrap transition-colors">
                 Instagram
               </a>
               <span className="text-stone-300">·</span>
-              <a href="https://www.facebook.com/people/Varnam-painting-designing/100063485036683/" target="_blank" rel="noopener noreferrer" className="text-xs text-charcoal/60 hover:text-gold font-bold uppercase tracking-[0.15em] whitespace-nowrap transition-colors">
+              <a href="https://www.facebook.com/people/Varnam-painting-designing/100063485036683/" target="_blank" rel="noopener noreferrer" className="text-xs text-charcoal/80 hover:text-gold font-bold uppercase tracking-[0.15em] whitespace-nowrap transition-colors">
                 Facebook
               </a>
               <span className="text-stone-300">·</span>
-              <a href="tel:+919526100862" className="text-xs text-charcoal/60 hover:text-gold font-bold uppercase tracking-[0.15em] whitespace-nowrap transition-colors">
+              <a href="tel:+919526100862" className="text-xs text-charcoal/80 hover:text-gold font-bold uppercase tracking-[0.15em] whitespace-nowrap transition-colors">
                 Call
               </a>
               <span className="text-stone-300">·</span>
-              <a href="https://wa.me/919526100862" target="_blank" rel="noopener noreferrer" className="text-xs text-charcoal/60 hover:text-gold font-bold uppercase tracking-[0.15em] whitespace-nowrap transition-colors">
+              <a href="https://wa.me/919526100862" target="_blank" rel="noopener noreferrer" className="text-xs text-charcoal/80 hover:text-gold font-bold uppercase tracking-[0.15em] whitespace-nowrap transition-colors">
                 WhatsApp
               </a>
             </div>

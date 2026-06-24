@@ -6,6 +6,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import galleryData from '@/lib/gallery-data'
 import Reveal from './Reveal'
+import { cloudinaryLoader } from '@/lib/cloudinary-helper'
 
 interface DbImage {
   id: string
@@ -59,6 +60,7 @@ export default function GalleryPreview() {
             >
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
+                  loader={cloudinaryLoader}
                   src={image.url}
                   alt={image.title}
                   fill

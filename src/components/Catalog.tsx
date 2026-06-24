@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 import Reveal from './Reveal'
+import { cloudinaryLoader } from '@/lib/cloudinary-helper'
 
 interface CatalogItem {
   id: string
@@ -275,6 +276,7 @@ export default function Catalog() {
                         ) : (
                           <>
                             <Image
+                              loader={cloudinaryLoader}
                               src={item.image || ''}
                               alt={item.name}
                               fill
@@ -293,7 +295,7 @@ export default function Catalog() {
 
                       {/* Card Content info */}
                       <div className="p-5">
-                        <span className="text-[10px] font-bold tracking-wider text-stone-400 block mlm">
+                        <span className="text-[10px] font-bold tracking-wider text-charcoal-600 block mlm">
                           {item.malayalam}
                         </span>
                         <h3 className="font-serif text-lg text-charcoal mt-0.5 leading-tight group-hover:text-teal transition-colors">
@@ -306,9 +308,9 @@ export default function Catalog() {
                     </div>
 
                     <div className="p-5 pt-0">
-                      <div className="border-t border-border-light pt-3.5 flex items-center justify-between text-[9px] font-bold uppercase tracking-wider text-charcoal/65">
+                       <div className="border-t border-border-light pt-3.5 flex items-center justify-between text-[9px] font-bold uppercase tracking-wider text-charcoal/80">
                         <span>Rooms:</span>
-                        <span className="text-teal truncate max-w-[150px]">{item.rooms.split(',')[0]}</span>
+                        <span className="text-teal-dark truncate max-w-[150px]">{item.rooms.split(',')[0]}</span>
                       </div>
                     </div>
 
@@ -354,15 +356,15 @@ export default function Catalog() {
             >
               
               {/* Close Button */}
-              <button
-                onClick={() => setSelectedItem(null)}
-                className="absolute right-4 top-4 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-white/80 shadow text-charcoal hover:bg-white transition-all active:scale-95"
-                aria-label="Close details"
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M18 6L6 18M6 6l12 12" />
-                </svg>
-              </button>
+               <button
+                 onClick={() => setSelectedItem(null)}
+                 className="absolute right-4 top-4 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white/80 shadow text-charcoal hover:bg-white transition-all active:scale-95"
+                 aria-label="Close details"
+               >
+                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                   <path d="M18 6L6 18M6 6l12 12" />
+                 </svg>
+               </button>
 
               {/* Top Banner Swatch or Image */}
               <div className="relative h-56 w-full overflow-hidden border-b border-border-light">
@@ -377,6 +379,7 @@ export default function Catalog() {
                   </div>
                 ) : (
                   <Image
+                    loader={cloudinaryLoader}
                     src={selectedItem.image || ''}
                     alt={selectedItem.name}
                     fill
@@ -393,9 +396,9 @@ export default function Catalog() {
 
               {/* Detail Info Panel */}
               <div className="p-6">
-                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gold mlm block">
-                  {selectedItem.malayalam}
-                </span>
+                 <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-teal-dark mlm block">
+                   {selectedItem.malayalam}
+                 </span>
                 <h3 className="font-serif text-2xl text-charcoal mt-1 leading-tight">
                   {selectedItem.name}
                 </h3>
@@ -406,18 +409,18 @@ export default function Catalog() {
 
                 {/* Specs List */}
                 <div className="mt-6 border-t border-border-light pt-4 space-y-2.5 text-xs">
-                  <div className="flex justify-between">
-                    <span className="font-bold text-stone-400 uppercase tracking-wider text-[10px]">Recommended Rooms:</span>
-                    <span className="text-charcoal font-medium text-right max-w-[280px]">{selectedItem.rooms}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="font-bold text-stone-400 uppercase tracking-wider text-[10px]">Material Finish:</span>
-                    <span className="text-charcoal font-medium">{selectedItem.finish}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="font-bold text-stone-400 uppercase tracking-wider text-[10px]">Maintenance / Wash:</span>
-                    <span className="text-charcoal font-medium">{selectedItem.maintenance}</span>
-                  </div>
+                   <div className="flex justify-between">
+                     <span className="font-bold text-charcoal-600 uppercase tracking-wider text-[10px]">Recommended Rooms:</span>
+                     <span className="text-charcoal font-medium text-right max-w-[280px]">{selectedItem.rooms}</span>
+                   </div>
+                   <div className="flex justify-between">
+                     <span className="font-bold text-charcoal-600 uppercase tracking-wider text-[10px]">Material Finish:</span>
+                     <span className="text-charcoal font-medium">{selectedItem.finish}</span>
+                   </div>
+                   <div className="flex justify-between">
+                     <span className="font-bold text-charcoal-600 uppercase tracking-wider text-[10px]">Maintenance / Wash:</span>
+                     <span className="text-charcoal font-medium">{selectedItem.maintenance}</span>
+                   </div>
                 </div>
 
                 {/* Interactive Consultation Enquiry Button */}
