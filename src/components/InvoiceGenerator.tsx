@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { agency, formatAmount, newInvoiceDraft, validateInvoice, type InvoiceDraft } from '@/lib/invoice'
@@ -13,10 +13,15 @@ export default function InvoiceGenerator({ initialDraft }: { initialDraft: Invoi
   const [generated, setGenerated] = useState<GeneratedDocument | null>(null)
   const [busy, setBusy] = useState(false)
   const [sharing, setSharing] = useState(false)
+  const hydrated = useSyncExternalStore(
+    () => () => undefined,
+    () => true,
+    () => false,
+  )
   const [error, setError] = useState('')
   const [message, setMessage] = useState('')
   const previewRef = useRef<HTMLElement>(null)
-  const downloadRef = useRef<HTMLAnchorElement>(null)
+  const pdfRef = useRef<HTMLAnchorElement>(null)
 
   useEffect(() => {
     if (!generated) return
@@ -46,7 +51,8 @@ export default function InvoiceGenerator({ initialDraft }: { initialDraft: Invoi
       requestAnimationFrame(() => previewRef.current?.focus())
     } catch (cause) {
       console.error('Invoice PDF generation failed', cause)
-      setError('Could not create the PDF. Check your connection and try again.')
+      const detail = cause instanceof Error ? cause.message : 'The browser stopped the PDF export.'
+      setError(`Could not create the PDF. ${detail} Please try again or use a recent version of Safari or Chrome.`)
     } finally {
       setBusy(false)
     }
@@ -56,9 +62,9 @@ export default function InvoiceGenerator({ initialDraft }: { initialDraft: Invoi
     if (!generated || sharing) return
     setError('')
     // The file is prepared before this tap, preserving mobile share activation.
-    if (!navigator.share || !navigator.canShare?.({ files: [generated.file] })) {
-      downloadRef.current?.click()
-      setMessage('Download the PDF, then attach it in WhatsApp or your preferred app.')
+    if (!navigator.share || typeof File !== 'function' || !(generated.file instanceof File) || !navigator.canShare?.({ files: [generated.file] })) {
+      pdfRef.current?.click()
+      setMessage('The PDF is open. Use your phone’s Share or Save controls from the PDF viewer.')
       return
     }
     setSharing(true)
@@ -67,7 +73,8 @@ export default function InvoiceGenerator({ initialDraft }: { initialDraft: Invoi
       setMessage('PDF handed to your sharing app.')
     } catch (cause) {
       if (!(cause instanceof Error && cause.name === 'AbortError')) {
-        setError('Sharing is unavailable. Download the PDF and attach it to your message.')
+        pdfRef.current?.click()
+        setMessage('The PDF is open. Use your phone’s Share or Save controls from the PDF viewer.')
       }
     } finally {
       setSharing(false)
@@ -87,7 +94,7 @@ export default function InvoiceGenerator({ initialDraft }: { initialDraft: Invoi
             const details = (event.target as HTMLElement).closest('details')
             if (details) details.open = true
           }} className={styles.form}>
-            <fieldset disabled={busy || sharing} className={styles.fields}>
+            <fieldset disabled={!hydrated || busy || sharing} className={styles.fields}>
               <legend className={styles.srOnly}>Document details</legend>
               <div className={styles.switcher} role="group" aria-label="Document type">
                 {(['Quotation', 'Invoice'] as const).map(kind => (
@@ -113,7 +120,7 @@ export default function InvoiceGenerator({ initialDraft }: { initialDraft: Invoi
                 <textarea id="invoice-notes" rows={3} maxLength={1000} placeholder="e.g. Materials included. Quote valid for 15 days." value={draft.notes} onChange={event => update('notes', event.target.value)} />
               </details>
               <div className={styles.total}><span>{draft.kind === 'Quotation' ? 'Quoted total' : 'Invoice total'}</span><strong>{formatAmount(draft.amount)}</strong></div>
-              <button className={styles.primary} type="submit">{busy ? 'Creating PDF…' : generated ? 'Generate PDF again' : 'Generate PDF'}</button>
+              <button className={styles.primary} type="submit">{!hydrated ? 'Loading…' : busy ? 'Creating PDF…' : generated ? 'Generate PDF again' : 'Generate PDF'}</button>
             </fieldset>
             <p className={styles.hint}>Customer details stay in this tab. Download your PDF before leaving.</p>
           </form>
@@ -123,9 +130,9 @@ export default function InvoiceGenerator({ initialDraft }: { initialDraft: Invoi
                 <div className={styles.previewHeading}><h2>Your PDF is ready</h2><span>{generated.previews.length} {generated.previews.length === 1 ? 'page' : 'pages'}</span></div>
                 <div className={styles.actions}>
                   <button className={styles.primary} type="button" disabled={sharing} onClick={share}>{sharing ? 'Sharing…' : 'Share PDF'}</button>
-                  <a className={styles.secondary} href={generated.url} download={generated.file.name} ref={downloadRef}>Download PDF</a>
+                  <a className={styles.secondary} href={generated.url} target="_blank" rel="noopener noreferrer" ref={pdfRef}>Open PDF</a>
                 </div>
-                <p className={styles.hint}>Choose WhatsApp or another app from your phone’s share menu.</p>
+                <p className={styles.hint}>On a phone, open the PDF and use the viewer’s Share or Save option.</p>
                 {generated.previews.map((src, index) => (
                   // A local canvas preview displays the exact exported PDF page.
                   // eslint-disable-next-line @next/next/no-img-element

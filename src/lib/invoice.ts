@@ -28,8 +28,18 @@ export function newInvoiceDraft(): InvoiceDraft {
   const date = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Kolkata', year: 'numeric', month: '2-digit', day: '2-digit' }).format(now)
   return {
     kind: 'Quotation', customer: '', amount: '', description: '', address: '', notes: '', date,
-    reference: `VAR-${date.replaceAll('-', '')}-${crypto.randomUUID().slice(0, 8).toUpperCase()}`,
+    reference: `VAR-${date.replaceAll('-', '')}-${createReferenceId()}`,
   }
+}
+
+function createReferenceId() {
+  if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') return crypto.randomUUID().slice(0, 8).toUpperCase()
+  if (typeof crypto !== 'undefined' && typeof crypto.getRandomValues === 'function') {
+    const bytes = new Uint8Array(4)
+    crypto.getRandomValues(bytes)
+    return Array.from(bytes, byte => byte.toString(16).padStart(2, '0')).join('').toUpperCase()
+  }
+  return Math.random().toString(16).slice(2, 10).toUpperCase()
 }
 
 export function validateInvoice(draft: InvoiceDraft): string | null {
