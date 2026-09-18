@@ -44,7 +44,8 @@ export default function InvoiceGenerator({ initialDraft }: { initialDraft: Invoi
       setGenerated({ ...result, url: URL.createObjectURL(result.file) })
       setMessage('PDF ready. Check the preview, then share or download.')
       requestAnimationFrame(() => previewRef.current?.focus())
-    } catch {
+    } catch (cause) {
+      console.error('Invoice PDF generation failed', cause)
       setError('Could not create the PDF. Check your connection and try again.')
     } finally {
       setBusy(false)

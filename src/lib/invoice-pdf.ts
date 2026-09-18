@@ -1,18 +1,30 @@
 import { agency, formatAmount, validateInvoice, type InvoiceDraft } from './invoice'
 
+function loadImage(src: string) {
+  return new Promise<HTMLImageElement>((resolve, reject) => {
+    const image = new Image()
+    image.onload = () => resolve(image)
+    image.onerror = () => reject(new Error('The invoice logo could not be loaded.'))
+    image.src = src
+  })
+}
+
 /** Render with browser fonts so customer names in Malayalam also survive export. */
 export async function generateInvoicePdf(draft: InvoiceDraft) {
   const error = validateInvoice(draft)
   if (error) throw new Error(error)
   const { jsPDF } = await import('jspdf')
-  await document.fonts.ready
+  if (document.fonts) await document.fonts.ready
   const sample = `${draft.customer} ${draft.description} ${draft.address} ${draft.notes}`
   const bodyFont = getComputedStyle(document.body).fontFamily
   const malayalamFont = getComputedStyle(document.documentElement).getPropertyValue('--font-mlm').trim() || 'sans-serif'
   const font = `Arial, ${malayalamFont}, ${bodyFont}`
-  const logo = new Image()
-  logo.src = '/images/branding/varnam-logo.png'
-  await Promise.all([document.fonts.load(`14px ${font}`, sample), logo.decode()])
+  const fontReady = document.fonts?.load(`14px ${font}`, sample) ?? Promise.resolve()
+  const logo = await loadImage('/images/branding/varnam-logo.png')
+  await fontReady
+  // `decode()` is not implemented in some mobile WebKit versions. The load
+  // event above is sufficient once the image has been fetched.
+  if (typeof logo.decode === 'function') await logo.decode().catch(() => undefined)
 
   const canvas = document.createElement('canvas')
   canvas.width = 1240
@@ -84,7 +96,10 @@ export async function generateInvoicePdf(draft: InvoiceDraft) {
       ctx.font = `${weight} ${size}px ${font}`
       return ctx.measureText(value).width
     }
-    const segments = new Intl.Segmenter(undefined, { granularity: 'grapheme' })
+    const segment = (value: string) => {
+      if (typeof Intl.Segmenter === 'function') return [...new Intl.Segmenter(undefined, { granularity: 'grapheme' }).segment(value)].map(({ segment }) => segment)
+      return Array.from(value)
+    }
     const emit = (line: string) => {
       if (table && y + size * 1.8 > 778) {
         rule(y)
@@ -109,12 +124,12 @@ export async function generateInvoicePdf(draft: InvoiceDraft) {
         const candidate = current ? `${current} ${word}` : word
         if (measure(candidate) <= width) { current = candidate; continue }
         if (current) { emit(current); current = '' }
-        for (const { segment } of segments.segment(word)) {
-          if (measure(current + segment) > width && current) {
+        for (const part of segment(word)) {
+          if (measure(current + part) > width && current) {
             emit(current)
             current = ''
           }
-          current += segment
+          current += part
         }
       }
       emit(current)
@@ -154,5 +169,11 @@ export async function generateInvoicePdf(draft: InvoiceDraft) {
   text('Authorised signatory', 410, y, 10, '#4B5563')
   finishPage()
   const filename = `${draft.kind.toLowerCase()}-${draft.reference.replace(/[^a-zA-Z0-9_-]/g, '-')}.pdf`
-  return { file: new File([pdf.output('blob')], filename, { type: 'application/pdf' }), previews }
+  const blob = pdf.output('blob')
+  // File is available on current desktop browsers, but older mobile browsers
+  // only expose Blob. Keep the download path working there as well.
+  const file = typeof File === 'function'
+    ? new File([blob], filename, { type: 'application/pdf' })
+    : Object.assign(blob, { name: filename, lastModified: Date.now() })
+  return { file: file as File, previews }
 }
