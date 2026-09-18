@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
+import Link from 'next/link'
 
 interface Message {
   id: string
@@ -143,6 +144,11 @@ export default function AdminDashboard() {
             Sign Out
           </button>
         </div>
+
+        <Link href="/admin/invoices" className="mb-6 flex min-h-14 items-center justify-between gap-4 rounded-lg bg-teal px-5 py-4 text-white transition-colors hover:bg-teal-dark">
+          <span className="font-medium">Invoices & quotations</span>
+          <span className="text-sm">Create PDF →</span>
+        </Link>
 
         <div className="mb-8 flex gap-1 border-b border-border">
           {(['messages', 'gallery'] as Tab[]).map((t) => (
