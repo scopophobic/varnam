@@ -64,8 +64,10 @@
 .documentTotal small { color: #718078; font-size: 8px; letter-spacing: .08em; }
 .documentTotal strong { color: #0F766E; font-family: var(--font-serif), Georgia, serif; font-size: 23px; }
 .documentNotes { font-size: 11px; line-height: 1.7; margin-top: 16px; }
-.signature { text-align: right; font-size: 10px; margin: 28px 0; }
-.signature span { display: block; margin-top: 40px; }
+.signature { text-align: right; font-size: 10px; margin: 28px 0; display: flex; flex-direction: column; align-items: flex-end; }
+.signatureImageWrapper { margin: 6px 0; }
+.signatureImage { display: block; object-fit: contain; }
+.signature span { display: block; margin-top: 4px; }
 .documentFooter { padding-top: 14px; border-top: 1px solid #D1D5DB; font-size: 10px; color: #4B5563; }
 .previewHeading h2 { font-size: 18px; font-weight: 600; }
 .previewHeading { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 18px; }

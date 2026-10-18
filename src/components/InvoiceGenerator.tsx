@@ -167,7 +167,13 @@ export default function InvoiceGenerator({ initialDraft }: { initialDraft: Invoi
                 <div className={styles.documentTotal}><span>Total amount <small>INR</small></span><strong>{formatAmount(draft.amount)}</strong></div>
                 {draft.notes && <div className={styles.documentNotes}><strong>Notes</strong><p>{draft.notes}</p></div>}
                 {draft.kind === 'Quotation' && <p className={styles.documentNotes}>This quotation is an estimate, not a payment receipt.</p>}
-                <div className={styles.signature}><p>For Varnam Painting and Designs</p><span>Authorised signatory</span></div>
+                <div className={styles.signature}>
+                  <p>For Varnam Painting and Designs</p>
+                  <div className={styles.signatureImageWrapper}>
+                    <Image src="/images/branding/signature.png" alt="Authorised signature" width={110} height={88} className={styles.signatureImage} />
+                  </div>
+                  <span>Authorised signatory</span>
+                </div>
                 <p className={styles.documentFooter}>Thank you for choosing Varnam.</p>
               </div>
             )}

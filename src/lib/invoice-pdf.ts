@@ -16,7 +16,10 @@ export async function generateInvoicePdf(draft: InvoiceDraft) {
   const error = validateInvoice(draft)
   if (error) throw new Error(error)
   const { jsPDF } = await import('jspdf')
-  const logo = await loadImage('/images/branding/varnam-logo.png')
+  const [logo, signature] = await Promise.all([
+    loadImage('/images/branding/varnam-logo.png'),
+    loadImage('/images/branding/signature.png').catch(() => null),
+  ])
   const canvas = document.createElement('canvas')
   const scale = 2
   canvas.width = PAGE.width * scale
@@ -103,9 +106,12 @@ export async function generateInvoicePdf(draft: InvoiceDraft) {
     wrap(draft.notes.trim(), 532, 10).slice(0, 6).forEach(line => { text(line, 44, y, 10, colors.ink); y += 15 })
   }
   if (draft.kind === 'Quotation') { y += 16; text('This quotation is an estimate, not a payment receipt.', 44, y, 9, colors.muted) }
-  const signatureY = Math.max(y + 58, 710)
-  text('For Varnam Painting and Designs', 365, signatureY, 9, colors.ink)
-  text('Authorised signatory', 410, signatureY + 48, 9, colors.muted)
+  const signatureY = Math.max(y + 36, 690)
+  text('For Varnam Painting and Designs', 390, signatureY, 9, colors.ink)
+  if (signature) {
+    ctx.drawImage(signature, 420, signatureY + 12, 110, 88)
+  }
+  text('Authorised signatory', 425, signatureY + 98, 9, colors.muted)
   rule(810, colors.paleLine)
   text('Thank you for choosing Varnam.', 44, 829, 9, colors.muted)
   text('Page 1', 530, 829, 9, colors.muted)
